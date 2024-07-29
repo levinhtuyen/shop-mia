@@ -37,38 +37,44 @@
             </div>
           </div>
           <div class="md:flex-1 px-4">
-            <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">Lorem ipsum dolor, sit amet consectetur, adipisicing elit.</h2>
-            <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">ABC Company</a></p>
+            <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">Info product</h2>
+            <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">Loai</a></p>
 
             <div class="flex items-center space-x-4 my-4">
               <div>
                 <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                  <span class="text-indigo-400 mr-1 mt-1">$</span>
-                  <span class="font-bold text-indigo-600 text-3xl">25</span>
+                  <span class="text-indigo-400 mr-1 mt-1"><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></span>
+                  <span class="font-bold text-indigo-600 text-3xl">3000.000 đ</span>
                 </div>
               </div>
               <div class="flex-1">
-                <p class="text-green-500 text-xl font-semibold">Save 12%</p>
-                <p class="text-gray-400 text-sm">Inclusive of all Taxes.</p>
+                <p class="text-green-500 text-xl font-semibold">Giảm 12%</p>
+                <p class="text-gray-400 text-sm">Không free ship</p>
               </div>
             </div>
 
-            <p class="text-gray-500">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Vitae exercitationem porro saepe ea harum corrupti vero id laudantium enim, libero blanditiis expedita cupiditate a est.</p>
+            <p class="text-gray-500">Thông tin chi tiết sản phẩm</p>
 
             <div class="flex py-4 space-x-4">
               <div class="relative">
                 <div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold">Qty</div>
-                <select class="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <el-select
+                    v-model="numProduct"
+                    placeholder="Chọn số lượng"
+                    size="large"
+                    style="width: 240px;height: 56px"
+                  >
+                    <el-option
+                      v-for="item in listNumbersProduct"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    >
+                    <span style="float: left;font-weight: 600;">{{ item.label }}</span>
+                    </el-option>
+                  </el-select>
 
-                <svg class="w-5 h-5 text-gray-400 absolute right-0 bottom-0 mb-2 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                </svg>
+
               </div>
 
               <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
@@ -85,8 +91,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 const image = ref(1)
+const listNumbersProduct =reactive([
+  { value: 1, label: '1' },
+  { value: 2, label: '2' },
+  { value: 3, label: '3' },
+  { value: 4, label: '4' },
+  { value: 5, label: '5' },
+  { value: 6, label: '6' },
+  { value: 7, label: '7' },
+  { value: 8, label: '8' },
+  { value: 9, label: '9' },
+  { value: 10, label: '10' },
+  { value: 11, label: '11' },
+  { value: 12, label: '12' },
+  { value: 13, label: '13' },
+  { value: 14, label: '14' },
+])
+
+const numProduct = ref(1)
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+:deep(.el-select__wrapper) {
+  height: 56px;
+}
+</style>
