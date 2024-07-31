@@ -3,21 +3,21 @@
     <!--Nav-->
     <header class="border-b border-palette-lighter sticky top-0 z-20 bg-white">
       <div
-        class="flex items-center justify-between mx-auto max-w-6xl px-6 pb-2 pt-4 md:pt-6"
+        class="flex items-center justify-between mx-auto max-w-6xl py-4"
       >
-        <a class="cursor-pointer" href="/"
-          ><h1 class="flex no-underline">
+        <a class="cursor-pointer" href="/">
+          <h1 class="flex no-underline items-center gap-2">
             <img
-              height="32"
-              width="32"
+              height="45"
+              width="45"
               alt="logo"
-              class="h-8 w-8 mr-1 object-contain"
+              class="object-contain"
               src="@/assets/logo.png"
             /><span class="text-xl font-primary font-bold tracking-tight pt-1"
-              >Doggy Stickers</span
+              >MIA shop</span
             >
-          </h1></a
-        >
+          </h1>
+        </a>
         <div>
           <a class="relative" aria-label="cart" href="/cart"
             ><svg

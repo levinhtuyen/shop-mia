@@ -5,31 +5,26 @@
   <main class="pt-24">
     <div class="mx-auto max-w-6xl">
       <div class="">
-        <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Get Doggy Stickers!</h1>
-        <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600">Times are tough. Liven up your home with some cute Doggy Stickers. 🐶</p>
+        <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
+        <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
       </div>
       <div class="py-12 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
-        <a class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" href="/product/the-unicorn">
+        <a v-for="(item,index) in dataShopTeddy" :key="index" class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" :href="`/${item.sn}`">
           <div class="h-72 border-b-2 border-palette-lighter relative">
-            <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="test-text" src="@/assets/logo.png" decoding="async" class="transform duration-500 ease-in-out hover:scale-110" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" sizes="100vw" srcset="@/assets/logo.png"></div>
+            <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0">
+              <img :alt="item.title"
+              :src="`${useAsset(item.imageBg)}`"
+              class="transform duration-500 ease-in-out hover:scale-110"
+              style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" >
+            </div>
           </div>
           <div class="h-48 relative">
-            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold">The Unicorn</div>
-            <div class="text-lg text-gray-600 p-4 font-primary font-light">They exist!</div>
-            <div class="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle">$<span class="text-lg">9.99</span></div>
+            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold">{{ item.title }}</div>
+            <div class="text-lg text-gray-600 p-4 font-primary font-light">{{ item.description }}</div>
+            <div class="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle flex gap-2"><span class="text-lg">Chỉ từ {{ item.minPrice }}</span><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></div>
           </div>
         </a>
-        <a class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" href="/product/the-fashionista">
-          <div class="h-72 border-b-2 border-palette-lighter relative">
-            <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="fashion-dog" src="@/assets/logo.png" decoding="async" class="transform duration-500 ease-in-out hover:scale-110" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" sizes="100vw" srcset="@/assets/logo.png"></div>
-          </div>
-          <div class="h-48 relative">
-            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold">The Fashionista</div>
-            <div class="text-lg text-gray-600 p-4 font-primary font-light">You know he's got his own personal stylist.</div>
-            <div class="flex text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle">
-              <span class="text-lg">400</span><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></div>
-          </div>
-        </a>
+
       </div>
     </div>
   </main>
@@ -74,7 +69,194 @@ import {
 import {
   Plus
 } from '@element-plus/icons-vue'
+const useAsset = (path: string): string => {
+  const assets: Record<string, string> = import.meta.glob('~/assets/**/*', {
+    eager: true,
+    import: 'default'
+  })
+  return assets['/assets/shop/' + path]
+}
+const dataShopTeddy = reactive([
+{
+    sn:5,
+    minPrice: 'Rẻ như cho',
+    title: 'Teddy mặc áo, ôm tim, thắt nơ, đủ màu',
+    imageBg: 'teddy6.jpg',
+    description: '45cm/ 60cm / 80cm / 1m / m2 / m4 / m6',
+    listImages: [
+      {
+        name: 'teddy1',
+        image: 'teddy1.jpg'
+      },
+      {
+        name: 'teddy2',
+        image: 'teddy2.jpg'
+      },
+      {
+        name: 'teddy3',
+        image: 'teddy3.jpg'
+      },
+      {
+        name: 'teddy4',
+        image: 'teddy4.jpg'
+      },
+      {
+        name: 'teddy5',
+        image: 'teddy5.jpg'
+      },
+      {
+        name: '10',
+        image: '10.jpg'
+      },
+      {
+        name: '11',
+        image: '11.jpg'
+      },
+      {
+        name: '12',
+        image: '12.jpg'
+      }
+    ]
+  },
+  {
+    sn:1,
+    minPrice: 'Rẻ như cho',
+    imageBg: '71.jpg',
+    title: 'Gấu trúc ôm dâu',
+    description: '2 size 60cm, 70cm',
+    listImages: [
+    {
+        name: '71',
+        image: '71.jpg'
+      },
+    ]
+  },
+  {
+    sn:2,
+    minPrice: 'Rẻ như cho',
+    imageBg: '101.jpg',
+    title: 'Heo ôm bình',
+    description: '45cm / 55cm / 65cm / 75cm',
+    listImages: [
+    {
+        name: '69',
+        image: '69.jpg'
+      },
+    ]
+  },
+  {
+    sn:3,
+    minPrice: 'Rẻ như cho',
+    imageBg: '81.jpg',
+    title: 'Búp bê ôm bình',
+    description: '35cm / 50cm / 60cm / 70cm',
+    listImages: [
+    {
+        name: '81',
+        image: '81.jpg'
+      },
+    ]
+  },
+  {
+    sn:4,
+    minPrice: 'Rẻ như cho',
+    imageBg: '20.jpg',
+    title: 'Heo baby ',
+    description: '35cm / 50cm / 60cm / 70cm',
+    listImages: [
+      {
+        name: '69',
+        image: '69.jpg'
+      },
+      {
+        name: '20',
+        image: '20.jpg'
+      },
+      {
+        name: '21',
+        image: '21.jpg'
+      },
+      {
+        name: '22',
+        image: '22.jpg'
+      },
+      {
+        name: '66',
+        image: '66.jpg'
+      },
+      {
+        name: '67',
+        image: '67.jpg'
+      },
+      {
+        name: '69',
+        image: '69.jpg'
+      },
+      {
+        name: '84',
+        image: '84.jpg'
+      },
+    ]
+  },
 
+  {
+    sn:7,
+    minPrice: 'Rẻ như cho',
+    title: 'Doremon ôm bánh',
+    imageBg: '99.jpg',
+    description: '50cm / 75cm/ 1m',
+    listImages: [
+      {
+        name: '99',
+        image: '99.jpg'
+      }
+    ]
+  },
+  // {
+  //   sn:8,
+  //   minPrice: 'Rẻ như cho',
+  //   title: 'Nobita / xuka',
+  //   imageBg: '99.jpg',
+  //   description: '50cm / 60cm / 70cm / 80cm',
+  //   listImages: [
+  //     {
+  //       name: '99',
+  //       image: '99.jpg'
+  //     }
+  //   ]
+  // },
+  {
+    sn:8,
+    minPrice: 'Rẻ như cho',
+    title: 'Gấu dâu',
+    imageBg: '63.jpg',
+    description: '45cm / 60cm / 80cm',
+    listImages: [
+      {
+        name: '63',
+        image: '63.jpg'
+      }
+    ]
+  },
+  {
+    sn:9,
+    minPrice: 'Rẻ như cho',
+    title: 'Hải ly cosplay gấu dâu',
+    imageBg: '91.jpg',
+    description: '40cm / 50cm / 60cm',
+    listImages: [
+      {
+        name: '91',
+        image: '91.jpg'
+      },
+      {
+        name: '21',
+        image: '21.jpg'
+      }
+    ]
+  }
+
+])
 const drawerShare = ref(false)
 
 const onShareSocial = (social: string) => {
