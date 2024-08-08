@@ -122,6 +122,333 @@ const dataShopTeddy = reactive([
     ]
   },
   {
+    sn:10,
+    minPrice: 85000,
+    title: 'Capybara chảy mũi xanh 2 màu nâu / hồng',
+    imageBg: 'capi1.jpg',
+    description: '45cm/50cm/55cm/65cm',
+    listImages: [
+      {
+        name: 'capi1',
+        image: 'capi1.jpg'
+      },
+      {
+        name: 'capi2',
+        image: 'capi2.jpg'
+      },
+      {
+        name: 'capi3',
+        image: 'capi3.jpg'
+      },
+      {
+        name: 'capi4',
+        image: 'capi4.jpg'
+      },
+      {
+        name: 'capi5',
+        image: 'capi5.jpg'
+      },
+      {
+        name: 'capi6',
+        image: 'capi6.jpg'
+      },
+      {
+        name: 'capi7',
+        image: 'capi7.jpg'
+      },
+      {
+        name: 'capi8',
+        image: 'capi8.jpg'
+      },
+      {
+        name: 'capi9',
+        image: 'capi9.jpg'
+      },
+      {
+        name: 'capi10',
+        image: 'capi10.jpg'
+      },
+      {
+        name: 'capi11',
+        image: 'capi11.jpg'
+      },
+      {
+        name: 'capi12',
+        image: 'capi12.jpg'
+      },
+      {
+        name: 'capi13',
+        image: 'capi13.jpg'
+      },
+      {
+        name: 'capi14',
+        image: 'capi14.jpg'
+      }
+    ]
+  },
+  {
+    sn:11,
+    minPrice: 90000,
+    title: 'Cá sấu',
+    imageBg: 'casau1.jpg',
+    description: '80cm - 1m2',
+    listImages: [
+      {
+        name: 'sau1',
+        image: 'sau1.jpg'
+      },
+      {
+        name: 'sau2',
+        image: 'sau2.jpg'
+      },
+      {
+        name: 'sau3',
+        image: 'sau3.jpg'
+      }
+    ]
+  },
+  {
+    sn:12,
+    minPrice: 130000,
+    title: 'Sâu đủ màu',
+    imageBg: 'sau2.jpg',
+    description: '1m con này làm size bao nhiêu cũng được, 2m cũng làm',
+    listImages: [
+      {
+        name: 'casau1',
+        image: 'casau1.jpg'
+      },
+      {
+        name: 'casau2',
+        image: 'casau2.jpg'
+      }
+    ]
+  },
+  {
+    sn:13,
+    minPrice: 140000,
+    title: 'Heo trùm',
+    imageBg: 'thotaidai1.jpg',
+    description: '2 size 55cm 65cm',
+    listImages: [
+      {
+        name: 'heonontrum1',
+        image: 'heonontrum1.jpg'
+      },
+      {
+        name: 'heonontrum2',
+        image: 'heonontrum2.jpg'
+      },
+      {
+        name: 'heonontrum3',
+        image: 'heonontrum3.jpg'
+      },
+      {
+        name: 'heonontrum4',
+        image: 'heonontrum4.jpg'
+      }
+    ]
+  },
+  {
+    sn:13,
+    minPrice: 180000,
+    title: 'Thỏ tai dài',
+    imageBg: 'heonontrum1.jpg',
+    description: '60cm / 70cm',
+    listImages: [
+      {
+        name: 'thotaidai2',
+        image: 'thotaidai2.jpg'
+      },
+      {
+        name: 'thotaidai1',
+        image: 'thotaidai1.jpg'
+      }
+    ]
+  },
+  {
+    sn:13,
+    minPrice: 95000,
+    title: 'Búp bê ôm bình',
+    imageBg: 'bupbeombinh3.jpg',
+    description: '35cm / 50cm / 60cm / 70cm',
+    listImages: [
+      {
+        name: 'bupbeombinh3',
+        image: 'bupbeombinh3.jpg'
+      },
+      {
+        name: 'bupbeombinh1',
+        image: 'bupbeombinh1.jpg'
+      },
+      {
+        name: 'bupbeombinh2',
+        image: 'bupbeombinh2.jpg'
+      },
+      {
+        name: 'bupbeombinh4',
+        image: 'bupbeombinh4.jpg'
+      }
+    ]
+  },
+  {
+    sn:14,
+    minPrice: 90000,
+    title: 'Kuromi',
+    imageBg: 'kurumi2.jpg',
+    description: '40cm / 50cm / 60cm',
+    listImages: [
+      {
+        name: 'kurumi1',
+        image: 'kurumi1.jpg'
+      },
+      {
+        name: 'kurumi2',
+        image: 'kurumi2.jpg'
+      },
+      {
+        name: 'kurumi3',
+        image: 'kurumi3.jpg'
+      },
+      {
+        name: 'kurumi4',
+        image: 'kurumi4.jpg'
+      },
+      {
+        name: 'kurumi5',
+        image: 'kurumi5.jpg'
+      },
+      {
+        name: 'kurumi6',
+        image: 'kurumi6.jpg'
+      }
+    ]
+  },
+  {
+    sn:15,
+    minPrice: 65000,
+    title: 'Doremon, nobita, xuka',
+    imageBg: 'xuka3.jpg',
+    description: '50cm / 60cm / 70cm / 80cm',
+    listImages: [
+      {
+        name: 'doremon1',
+        image: 'doremon1.jpg'
+      },
+      {
+        name: 'doremon2',
+        image: 'doremon2.jpg'
+      },
+      {
+        name: 'doremon3',
+        image: 'doremon3.jpg'
+      },
+      {
+        name: 'doremon4',
+        image: 'doremon4.jpg'
+      },
+      {
+        name: 'doremon5',
+        image: 'doremon5.jpg'
+      },
+      {
+        name: 'doremon6',
+        image: 'doremon6.jpg'
+      },
+      ,
+      {
+        name: 'xuka1',
+        image: 'xuka1.jpg'
+      },
+      {
+        name: 'xuka2',
+        image: 'xuka2.jpg'
+      },
+      {
+        name: 'xuka3',
+        image: 'xuka3.jpg'
+      },
+      {
+        name: 'xuka4',
+        image: 'xuka4.jpg'
+      },
+      {
+        name: 'xuka5',
+        image: 'xuka5.jpg'
+      },
+      {
+        name: 'xuka6',
+        image: 'xuka6.jpg'
+      },
+      {
+        name: 'xuka7',
+        image: 'xuka7.jpg'
+      },
+      {
+        name: 'nobita1',
+        image: 'nobita1.jpg'
+      },
+      {
+        name: 'nobita2',
+        image: 'nobita2.jpg'
+      },
+      {
+        name: 'nobita3',
+        image: 'nobita3.jpg'
+      }
+    ]
+  },
+  {
+    sn:16,
+    minPrice: 80000,
+    title: 'Gấu cosplay pikachu',
+    imageBg: 'pikachu4.jpg',
+    description: '35cm',
+    listImages: [
+      {
+        name: 'pikachu1',
+        image: 'pikachu1.jpg'
+      },
+      {
+        name: 'pikachu2',
+        image: 'pikachu2.jpg'
+      },
+      {
+        name: 'pikachu3',
+        image: 'pikachu3.jpg'
+      },
+      {
+        name: 'pikachu4',
+        image: 'pikachu4.jpg'
+      }
+    ]
+  },
+  {
+    sn:16,
+    minPrice: 120000,
+    title: 'Gấu dâu',
+    imageBg: 'gaudau2.jpg',
+    description: '45cm / 60cm / 80cm',
+    listImages: [
+      {
+        name: 'gaudau1',
+        image: 'gaudau1.jpg'
+      },
+      {
+        name: 'gaudau2',
+        image: 'gaudau2.jpg'
+      },
+      {
+        name: 'gaudau3',
+        image: 'gaudau3.jpg'
+      },
+      {
+        name: 'gaudau4',
+        image: 'gaudau4.jpg'
+      }
+    ]
+  },
+  {
     sn:1,
     minPrice: 140000,
     imageBg: '71.jpg',
@@ -142,8 +469,40 @@ const dataShopTeddy = reactive([
     description: '45cm / 55cm / 65cm / 75cm',
     listImages: [
     {
-        name: '69',
-        image: '69.jpg'
+        name: 'heoombinh9',
+        image: 'heoombinh9.jpg'
+      },
+      {
+        name: 'heoombinh8',
+        image: 'heoombinh8.jpg'
+      },
+      {
+        name: 'heoombinh7',
+        image: 'heoombinh7.jpg'
+      },
+      {
+        name: 'heoombinh6',
+        image: 'heoombinh6.jpg'
+      },
+      {
+        name: 'heoombinh5',
+        image: 'heoombinh5.jpg'
+      },
+      {
+        name: 'heoombinh4',
+        image: 'heoombinh4.jpg'
+      },
+      {
+        name: 'heoombinh3',
+        image: 'heoombinh3.jpg'
+      },
+      {
+        name: 'heoombinh2',
+        image: 'heoombinh2.jpg'
+      },
+      {
+        name: 'heoombinh1',
+        image: 'heoombinh1.jpg'
       },
     ]
   },
@@ -163,41 +522,45 @@ const dataShopTeddy = reactive([
   {
     sn:4,
     minPrice: 95000,
-    imageBg: '20.jpg',
+    imageBg: 'heobaby6.jpg',
     title: 'Heo baby ',
     description: '35cm / 50cm / 60cm / 70cm',
     listImages: [
       {
-        name: '69',
-        image: '69.jpg'
+        name: 'heobaby1',
+        image: 'heobaby1.jpg'
       },
       {
-        name: '20',
-        image: '20.jpg'
+        name: 'heobaby2',
+        image: 'heobaby2.jpg'
       },
       {
-        name: '21',
-        image: '21.jpg'
+        name: 'heobaby3',
+        image: 'heobaby3.jpg'
       },
       {
-        name: '22',
-        image: '22.jpg'
+        name: 'heobaby4',
+        image: 'heobaby4.jpg'
       },
       {
-        name: '66',
-        image: '66.jpg'
+        name: 'heobaby5',
+        image: 'heobaby5.jpg'
       },
       {
-        name: '67',
-        image: '67.jpg'
+        name: 'heobaby6',
+        image: 'heobaby6.jpg'
       },
       {
-        name: '69',
-        image: '69.jpg'
+        name: 'heobaby7',
+        image: 'heobaby7.jpg'
       },
       {
-        name: '84',
-        image: '84.jpg'
+        name: 'heobaby8',
+        image: 'heobaby8.jpg'
+      },
+      {
+        name: 'heobaby9',
+        image: 'heobaby9.jpg'
       },
     ]
   },
@@ -230,14 +593,26 @@ const dataShopTeddy = reactive([
   // },
   {
     sn:8,
-    minPrice: 120000,
-    title: 'Gấu dâu',
-    imageBg: '63.jpg',
-    description: '45cm / 60cm / 80cm',
+    minPrice: 90000,
+    title: 'Báo hồng',
+    imageBg: 'baohong3.jpg',
+    description: '70cm / 1m / m3',
     listImages: [
       {
-        name: '63',
-        image: '63.jpg'
+        name: 'baohong1',
+        image: 'baohong1.jpg'
+      },
+      {
+        name: 'baohong2',
+        image: 'baohong2.jpg'
+      },
+      {
+        name: 'baohong3',
+        image: 'baohong3.jpg'
+      },
+      {
+        name: 'baohong4',
+        image: 'baohong4.jpg'
       }
     ]
   },
@@ -255,6 +630,31 @@ const dataShopTeddy = reactive([
       {
         name: '21',
         image: '21.jpg'
+      },
+      ,
+      {
+        name: 'loopy1',
+        image: 'loopy1.jpg'
+      },
+      {
+        name: 'loopy2',
+        image: 'loopy2.jpg'
+      },
+      {
+        name: 'loopy3',
+        image: 'loopy3.jpg'
+      },
+      {
+        name: 'loopy4',
+        image: 'loopy4.jpg'
+      },
+      {
+        name: 'loopy5',
+        image: 'loopy5.jpg'
+      },
+      {
+        name: 'loopy6',
+        image: 'loopy6.jpg'
       }
     ]
   }
