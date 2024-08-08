@@ -2,25 +2,44 @@
   <div>
     <Header />
     <!-- Main -->
-    <main class="pt-24" >
-      <client-only >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" >
+    <main class="pt-24 min-h-5xl">
+      <client-only>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
-              <div >
+              <div>
                 <div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
-                  <div  class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                    <img  style="height: 100%;" :alt="imageShow.name" :src="imageShow.image"/>
+                  <div
+                    class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center cursor-pointer"
+                  >
+                    <img
+                      @click="showImage(imageShow)"
+                      style="height: 100%"
+                      :alt="imageShow.name"
+                      :src="useAsset(imageShow.image)"
+                    />
                   </div>
-
                 </div>
 
-                <div class="flex -mx-2 mb-4">
-                  <template v-for="(image, index) in productById.listImages" :key="index">
+                <div class="flex -mx-2 mb-4 overflow-x-scroll">
+                  <template
+                    v-for="(image, index) in productById.listImages"
+                    :key="index"
+                  >
                     <div class="flex-1 px-2">
-                      <button  @click="changeImageShow(image)" :class="{ 'ring-2 ring-indigo-300 ring-inset': image.name === imageShow.name }" class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center">
-                        <img style="height: 75px;" :alt="image.name"
-                          :src="image.image"/>
+                      <button
+                        @click="changeImageShow(image)"
+                        :class="{
+                          'ring-2 ring-indigo-300 ring-inset':
+                            image.name === imageShow.name
+                        }"
+                        class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
+                      >
+                        <img
+                          style="height: 75px"
+                          :alt="image.name"
+                          :src="useAsset(image.image)"
+                        />
                       </button>
                     </div>
                   </template>
@@ -28,14 +47,25 @@
               </div>
             </div>
             <div class="md:flex-1 px-4">
-              <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{ productById.title }}</h2>
+              <h2
+                class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl"
+              >
+                {{ productById.title }}
+              </h2>
               <p class="text-gray-500 text-sm">{{ productById.description }}</p>
 
               <div class="flex items-center space-x-4 my-4">
                 <div>
                   <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                    <span class="text-indigo-400 mr-1 mt-1"><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></span>
-                    <span class="font-bold text-indigo-600 text-3xl">{{ formatMoney(productById.minPrice) }} đ</span>
+                    <span class="text-indigo-400 mr-1 mt-1"
+                      ><img
+                        src="@/assets/fish-svgrepo-com.svg"
+                        width="30"
+                        alt=""
+                    /></span>
+                    <span class="font-bold text-indigo-600 text-3xl"
+                      >{{ formatMoney(priceShow) }} đ</span
+                    >
                   </div>
                 </div>
                 <div class="flex-1">
@@ -48,27 +78,31 @@
 
               <div class="flex py-4 space-x-4">
                 <div class="relative">
-                  <div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold">Qty</div>
+                  <div
+                    class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold"
+                  >
+                    Qty
+                  </div>
                   <el-select
-                      v-model="chooseNumProduct"
-                      placeholder="Chọn số lượng"
-                      size="large"
-                      style="width: 240px;height: 56px"
-                      @change="changeNumberProduct"
+                    v-model="chooseNumProduct"
+                    placeholder="Chọn số lượng"
+                    size="large"
+                    style="width: 240px; height: 56px"
+                    @change="changeNumberProduct"
+                  >
+                    <el-option
+                      v-for="item in listNumbersProduct"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
                     >
-                      <el-option
-                        v-for="item in listNumbersProduct"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                      >
-                      <span style="float: left;font-weight: 600;">{{ item.label }}</span>
-                      </el-option>
-                    </el-select>
-
-
+                      <span style="float: left; font-weight: 600">{{
+                        item.label
+                      }}</span>
+                    </el-option>
+                  </el-select>
                 </div>
-<!--
+                <!--
                 <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
                   Add to Cart
                 </button> -->
@@ -76,8 +110,122 @@
             </div>
           </div>
         </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+          <swiper
+              :slides-per-view="3"
+              :space-between="50"
+              @swiper="onSwiper"
+              @slideChange="onSlideChange"
+            >
+            <swiper-slide v-for="(item, index) in dataShopTeddy" :key="index">
+              <article
+                class="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border"
+              >
+                <a
+                  :href="`/product/${item.sn}`"
+                  class="absolute opacity-0 top-0 right-0 left-0 bottom-0"
+                ></a>
+                <div class="relative mb-4 rounded-2xl">
+                  <img
+                    class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                    :src="`${useAsset(item.imageBg)}`"
+                  />
+                  <div
+                    class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="h-5 w-5 text-red-700"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      />
+                    </svg>
+                    <span class="ml-1 text-sm text-slate-400">4</span>
+                  </div>
+
+                  <a
+                    class="flex justify-center items-center bg-red-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
+                    :href="`/product/${item.sn}`"
+                    target="_self"
+                    rel="noopener noreferrer"
+                  >
+                    Xem chi tiết
+                    <svg
+                      class="ml-2 w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div
+                  class="flex justify-between items-left w-full pb-4 mb-auto"
+                >
+                  <div class="w-full">
+                    <p
+                      class="text-base text-left w-52 font-semibold line-clamp-1"
+                      style="
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                      "
+                    >
+                      Size: {{ item.description }}
+                    </p>
+                  </div>
+                  <div class="w-full">
+                    <div class="text-sm flex items-center text-gray-500 w-20">
+                      Chỉ từ {{ formatMoney(item.minPrice) }}
+                      <img
+                        src="@/assets/fish-svgrepo-com.svg"
+                        width="30"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3 class="font-medium text-xl leading-8">
+                  <a
+                    href="/blog/slug"
+                  class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                      "
+                  >
+                    {{ item.title }}
+                  </a>
+                </h3>
+                <div></div>
+              </article>
+            </swiper-slide>
+          </swiper>
+        </div>
       </client-only>
     </main>
+    <el-dialog v-model="dialogShowVisible" width="800">
+      <div slots="header">
+        <div class="font-bold text-[24px] pb-5">Ảnh full không che</div>
+      </div>
+      <img :src="useAsset(imageShowFull.image)" alt="" />
+    </el-dialog>
     <Footer />
     <BackToTop />
   </div>
@@ -86,7 +234,11 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 const { formatMoney } = useFormat()
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
 
+  // Import Swiper styles
+  import 'swiper/css';
 const useAsset = (path: string): string => {
   const assets: Record<string, string> = import.meta.glob('~/assets/**/*', {
     eager: true,
@@ -94,10 +246,16 @@ const useAsset = (path: string): string => {
   })
   return assets['/assets/shop/' + path]
 }
+const onSwiper = (swiper:any) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
 const route = useRoute()
 let imageShow = ref<any>({
   name: '',
-  image: `${useAsset('')}`
+  image: ''
 })
 const chooseNumProduct = ref(1)
 const listNumbersProduct = reactive([
@@ -114,11 +272,11 @@ const listNumbersProduct = reactive([
   { value: 11, label: '11' },
   { value: 12, label: '12' },
   { value: 13, label: '13' },
-  { value: 14, label: '14' },
+  { value: 14, label: '14' }
 ])
 const dataShopTeddy = reactive([
-{
-    sn:5,
+  {
+    sn: 5,
     minPrice: 75000,
     title: 'Teddy mặc áo, ôm tim, thắt nơ, đủ màu',
     imageBg: 'teddy6.jpg',
@@ -159,7 +317,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:10,
+    sn: 10,
     minPrice: 85000,
     title: 'Capybara chảy mũi xanh 2 màu nâu / hồng',
     imageBg: 'capi1.jpg',
@@ -224,7 +382,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:11,
+    sn: 11,
     minPrice: 90000,
     title: 'Cá sấu',
     imageBg: 'casau1.jpg',
@@ -245,7 +403,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:12,
+    sn: 12,
     minPrice: 130000,
     title: 'Sâu đủ màu',
     imageBg: 'sau2.jpg',
@@ -262,7 +420,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:13,
+    sn: 13,
     minPrice: 140000,
     title: 'Heo trùm',
     imageBg: 'thotaidai1.jpg',
@@ -287,7 +445,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:13,
+    sn: 13,
     minPrice: 180000,
     title: 'Thỏ tai dài',
     imageBg: 'heonontrum1.jpg',
@@ -304,7 +462,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:13,
+    sn: 13,
     minPrice: 95000,
     title: 'Búp bê ôm bình',
     imageBg: 'bupbeombinh3.jpg',
@@ -329,7 +487,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:14,
+    sn: 14,
     minPrice: 90000,
     title: 'Kuromi',
     imageBg: 'kurumi2.jpg',
@@ -362,7 +520,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:15,
+    sn: 15,
     minPrice: 65000,
     title: 'Doremon, nobita, xuka',
     imageBg: 'xuka3.jpg',
@@ -436,7 +594,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:16,
+    sn: 16,
     minPrice: 80000,
     title: 'Gấu cosplay pikachu',
     imageBg: 'pikachu4.jpg',
@@ -461,7 +619,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:16,
+    sn: 16,
     minPrice: 120000,
     title: 'Gấu dâu',
     imageBg: 'gaudau2.jpg',
@@ -486,26 +644,26 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:1,
+    sn: 1,
     minPrice: 140000,
     imageBg: '71.jpg',
     title: 'Gấu trúc ôm dâu',
     description: '2 size 60cm, 70cm',
     listImages: [
-    {
+      {
         name: '71',
         image: '71.jpg'
-      },
+      }
     ]
   },
   {
-    sn:2,
+    sn: 2,
     minPrice: 105000,
     imageBg: '101.jpg',
     title: 'Heo ôm bình',
     description: '45cm / 55cm / 65cm / 75cm',
     listImages: [
-    {
+      {
         name: 'heoombinh9',
         image: 'heoombinh9.jpg'
       },
@@ -540,24 +698,24 @@ const dataShopTeddy = reactive([
       {
         name: 'heoombinh1',
         image: 'heoombinh1.jpg'
-      },
+      }
     ]
   },
   {
-    sn:3,
+    sn: 3,
     minPrice: 95000,
     imageBg: '81.jpg',
     title: 'Búp bê ôm bình',
     description: '35cm / 50cm / 60cm / 70cm',
     listImages: [
-    {
+      {
         name: '81',
         image: '81.jpg'
-      },
+      }
     ]
   },
   {
-    sn:4,
+    sn: 4,
     minPrice: 95000,
     imageBg: 'heobaby6.jpg',
     title: 'Heo baby ',
@@ -598,12 +756,12 @@ const dataShopTeddy = reactive([
       {
         name: 'heobaby9',
         image: 'heobaby9.jpg'
-      },
+      }
     ]
   },
 
   {
-    sn:7,
+    sn: 7,
     minPrice: 120000,
     title: 'Doremon ôm bánh',
     imageBg: '99.jpg',
@@ -629,7 +787,7 @@ const dataShopTeddy = reactive([
   //   ]
   // },
   {
-    sn:8,
+    sn: 8,
     minPrice: 90000,
     title: 'Báo hồng',
     imageBg: 'baohong3.jpg',
@@ -654,7 +812,7 @@ const dataShopTeddy = reactive([
     ]
   },
   {
-    sn:9,
+    sn: 9,
     minPrice: 100000,
     title: 'Hải ly cosplay gấu dâu',
     imageBg: '91.jpg',
@@ -695,30 +853,35 @@ const dataShopTeddy = reactive([
       }
     ]
   }
-
 ])
 let productById = ref<any>({})
-const numIdProduct = ref(route.params.id ? Number(route.params.id): 1)
-
+const numIdProduct = ref(route.params.id ? Number(route.params.id) : 1)
+let imageShowFull = ref<any>({})
+let priceShow = ref<number>(0)
+const dialogShowVisible = ref<any>(false)
+const showImage = (image: any) => {
+  imageShowFull.value = image
+  dialogShowVisible.value = true
+}
 const getProductInStore = () => {
-  productById.value = dataShopTeddy.filter((item:any) => {
-    if(item.sn === numIdProduct.value) {
+  productById.value = dataShopTeddy.filter((item: any) => {
+    if (item.sn === numIdProduct.value) {
       return item
     }
   })[0]
   imageShow.value = productById.value.listImages[0]
+  priceShow.value = productById.value.minPrice
 }
-const changeNumberProduct = () => {
-  if(!numIdProduct) {
+const changeNumberProduct = (numberProduct: number) => {
+  if (!numberProduct) {
     return
   }
-  productById.value.minPrice = productById.value.minPrice * numIdProduct.value
+  priceShow.value = numberProduct * productById.value.minPrice
 }
 const changeImageShow = (image: any) => {
   imageShow.value = image
 }
 getProductInStore()
-
 </script>
 
 <style lang="scss" scoped>
