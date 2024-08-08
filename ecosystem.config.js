@@ -1,6 +1,6 @@
 exports = {   apps: [
   {
-    name: 'qrcode-custom.com',
+    name: 'gaubongmia.com',
     exec_mode: 'cluster',
     einstances: '1',
     script: './.output/server/index.mjs',

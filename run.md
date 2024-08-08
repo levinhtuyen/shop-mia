@@ -18,12 +18,14 @@ sudo ufw allow "Nginx Full"
 ufw allow OpenSSH
 ufw enable
 
+
+
+
 # Set up SSL with Certbot (Let’s Encrypt):
-sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d qrcode-custom.com -d www.qrcode-custom.com
+sudo certbot --nginx -d gaubongmia.com -d www.gaubongmia.com
 
 # Create a symbolic link to this file in the /etc/nginx/sites-enabled directory
-sudo ln -s /etc/nginx/sites-available/qrcode-custom /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/gaubongmia /etc/nginx/sites-enabled/
 
 # Check your nginx configuration for errors
 sudo nginx -t
@@ -50,7 +52,7 @@ npm install -g yarn
 cd /var/www
 
 # create app or clone project
-cd  qrcode
+cd  gaubongmia
 
 # config yarn
 yarn config set ignore-engines true || yarn install --ignore-engines
@@ -60,15 +62,15 @@ yarn build
 
 # Create NGINX config file and edit it
 cd /etc/nginx/sites-available
-touch qrcode
-nano qrcode
+touch gaubongmia
+nano gaubongmia
 
 # Set up Nginx configuration for your Nuxt.js application.
 
 server {
 
     listen 80;
-    server_name qrcode-custom.com www.qrcode-custom.com;
+    server_name gaubongmia.com www.gaubongmia.com;
 
     location / {
         proxy_pass http://localhost:3000;
@@ -81,14 +83,16 @@ server {
 
     listen [::]:443 ssl ipv6only=on;
     listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/qrcode-custom.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/qrcode-custom.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/gaubongmia.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/gaubongmia.com/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 }
+
+nano nginx.conf
 # Syslink the file in sites-enabled
-sudo ln -s /etc/nginx/sites-available/qrcode /etc/nginx/sites-enabled/qrcode
+sudo ln -s /etc/nginx/sites-available/gaubongmia /etc/nginx/sites-enabled/gaubongmia
 
 
 # remove the default config files
@@ -110,7 +114,7 @@ sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-po
 
 
 # start pm2
-pm2 start ./node_modules/nuxt/bin/nuxt.js --name="QRCodeCustom" -- start
+pm2 start ./node_modules/nuxt/bin/nuxt.mjs --name="gaubongmia" -- start
 
 # Check pm2 is working
 pm2 status

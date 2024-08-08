@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: 'https://qrcode-custom.com/favicon.ico'
+          href: 'https://gaubongmia.com/favicon.ico'
         }
       ],
       htmlAttrs: {
