@@ -42,10 +42,10 @@ export default defineNuxtConfig({
       gzip: true,
       brotli: false
     },
-    // routeRules: {
-    //   "/img/**": { headers: { 'cache-control': `no-cache` } },
-    //   "/_nuxt/**": { headers: { 'cache-control': `no-cache` } },
-    // },
+    routeRules: {
+      '/': { ssr: true },
+      '/product/**': { static: true }
+    },
     publicAssets: [
       {
         baseURL: 'public',

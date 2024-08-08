@@ -9,21 +9,26 @@
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
       </div>
       <div class="py-12 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
-        <a v-for="(item,index) in dataShopTeddy" :key="index" class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" :href="`/${item.sn}`">
+        <div v-for="(item,index) in dataShopTeddy" :key="index" class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" >
           <div class="h-72 border-b-2 border-palette-lighter relative">
             <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0">
-              <img :alt="item.title"
+              <a :href="`/product/${item.sn}`">
+                <img  :alt="item.title"
               :src="`${useAsset(item.imageBg)}`"
-              class="transform duration-500 ease-in-out hover:scale-110"
-              style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" >
+              class="transform duration-500 ease-in-out hover:scale-110 style-image" />
+              </a>
             </div>
           </div>
           <div class="h-48 relative">
-            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold">{{ item.title }}</div>
+            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold" >
+              <a :href="`/product/${item.sn}`">
+                {{ item.title }}
+              </a>
+            </div>
             <div class="text-lg text-gray-600 p-4 font-primary font-light">{{ item.description }}</div>
-            <div class="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle flex gap-2"><span class="text-lg">Chỉ từ {{ item.minPrice }}</span><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></div>
+            <div class="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle flex gap-2"><span class="text-lg">Chỉ từ {{ formatMoney(item.minPrice) }}</span><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -63,12 +68,8 @@ import SchemaJson from '@/util/schema.json'
 import {
   ref
 } from 'vue'
-import {
-  ElMessage
-} from 'element-plus'
-import {
-  Plus
-} from '@element-plus/icons-vue'
+const { formatMoney } = useFormat()
+
 const useAsset = (path: string): string => {
   const assets: Record<string, string> = import.meta.glob('~/assets/**/*', {
     eager: true,
@@ -76,10 +77,12 @@ const useAsset = (path: string): string => {
   })
   return assets['/assets/shop/' + path]
 }
+const route = useRoute()
+const router = useRouter()
 const dataShopTeddy = reactive([
 {
     sn:5,
-    minPrice: 'Rẻ như cho',
+    minPrice: 75000,
     title: 'Teddy mặc áo, ôm tim, thắt nơ, đủ màu',
     imageBg: 'teddy6.jpg',
     description: '45cm/ 60cm / 80cm / 1m / m2 / m4 / m6',
@@ -120,7 +123,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:1,
-    minPrice: 'Rẻ như cho',
+    minPrice: 140000,
     imageBg: '71.jpg',
     title: 'Gấu trúc ôm dâu',
     description: '2 size 60cm, 70cm',
@@ -133,7 +136,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:2,
-    minPrice: 'Rẻ như cho',
+    minPrice: 105000,
     imageBg: '101.jpg',
     title: 'Heo ôm bình',
     description: '45cm / 55cm / 65cm / 75cm',
@@ -146,7 +149,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:3,
-    minPrice: 'Rẻ như cho',
+    minPrice: 95000,
     imageBg: '81.jpg',
     title: 'Búp bê ôm bình',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -159,7 +162,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:4,
-    minPrice: 'Rẻ như cho',
+    minPrice: 95000,
     imageBg: '20.jpg',
     title: 'Heo baby ',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -201,7 +204,7 @@ const dataShopTeddy = reactive([
 
   {
     sn:7,
-    minPrice: 'Rẻ như cho',
+    minPrice: 120000,
     title: 'Doremon ôm bánh',
     imageBg: '99.jpg',
     description: '50cm / 75cm/ 1m',
@@ -227,7 +230,7 @@ const dataShopTeddy = reactive([
   // },
   {
     sn:8,
-    minPrice: 'Rẻ như cho',
+    minPrice: 120000,
     title: 'Gấu dâu',
     imageBg: '63.jpg',
     description: '45cm / 60cm / 80cm',
@@ -240,7 +243,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:9,
-    minPrice: 'Rẻ như cho',
+    minPrice: 100000,
     title: 'Hải ly cosplay gấu dâu',
     imageBg: '91.jpg',
     description: '40cm / 50cm / 60cm',
@@ -312,7 +315,6 @@ const onShareSocial = (social: string) => {
   link.click();
   document.body.removeChild(link);
 }
-
 onMounted(async () => {
 
 })
@@ -339,7 +341,24 @@ useHead({
 .work-sans {
   font-family: 'Work Sans', sans-serif;
 }
-
+.style-image {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  box-sizing:border-box;
+  padding:0;
+  border:none;
+  margin:auto;
+  display:block;
+  width:0;
+  height:0;
+  min-width:100%;
+  max-width:100%;
+  min-height:100%;
+  max-height:100%
+}
 #menu-toggle:checked+#menu {
   display: block;
 }

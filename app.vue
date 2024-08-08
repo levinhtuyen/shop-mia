@@ -6,9 +6,11 @@
           v-if="loading"
           class="fixed left-0 top-0 h-0.5 w-full z-50 bg-green-500">
         </div>
-        <nuxt-layout>
-          <nuxt-page />
-        </nuxt-layout>
+        <div>
+          <nuxt-layout>
+            <nuxt-page />
+          </nuxt-layout>
+        </div>
       </div>
     </DelayHydration>
   </div>
