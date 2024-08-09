@@ -1,21 +1,20 @@
 <template>
   <div class="style-header fixed w-full z-20">
     <!--Nav-->
-    <header class="border-b border-palette-lighter sticky top-0 z-20 bg-white">
+    <header class="border-b border-palette-lighter sticky top-0 z-20 bg-[#fbf3f4]">
       <div
-        class="flex items-center justify-between mx-auto max-w-6xl py-4"
+        class="flex items-center justify-between mx-auto max-w-6xl"
       >
         <a class="cursor-pointer" href="/">
           <h1 class="flex no-underline items-center gap-2">
             <img
-              height="45"
-              width="45"
+              height="145"
+              width="145"
               alt="logo"
               class="object-contain"
-              src="@/assets/logo.png"
-            /><span class="text-xl font-primary font-bold tracking-tight pt-1"
-              >MIA shop</span
-            >
+              src="@/assets/logo.gif"
+            />
+
           </h1>
         </a>
         <!-- <div>

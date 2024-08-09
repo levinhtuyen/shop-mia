@@ -1,12 +1,16 @@
 <template>
   <div style="background-color: #f5f5f5;">
     <DelayHydration>
+
       <div>
         <nuxt-layout :name="$route.fullPath">
           <nuxt-page />
         </nuxt-layout>
 
       </div>
+      <client-only>
+        <div id="fb-root"></div> <div id="fb-customer-chat" class="fb-customerchat"></div>
+      </client-only>
     </DelayHydration>
   </div>
 </template>

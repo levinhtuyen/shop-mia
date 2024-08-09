@@ -5,23 +5,24 @@
     <main class="pt-24 min-h-5xl">
       <client-only>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-          <div class="flex flex-col md:flex-row -mx-4">
+          <div class="flex flex-col md:grid md:grid-cols-2 -mx-4">
             <div class="md:flex-1 px-4">
               <div>
                 <div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
                   <div
                     class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center cursor-pointer"
                   >
-                    <img
+                        <el-image
+                       fit="cover"
                       @click="showImage(imageShow)"
                       style="height: 100%"
                       :alt="imageShow.name"
                       :src="useAsset(imageShow.image)"
-                    />
+                    ></el-image>
                   </div>
                 </div>
 
-                <div class="flex -mx-2 mb-4 overflow-x-scroll">
+                <div class="flex -mx-2 mb-4 overflow-x-scroll style-scroll">
                   <template
                     v-for="(image, index) in productById.listImages"
                     :key="index"
@@ -35,11 +36,12 @@
                         }"
                         class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
                       >
-                        <img
-                          style="height: 75px"
+                            <el-image
+                          fit="cover"
+                          style="height: 75px;width: 75px"
                           :alt="image.name"
                           :src="useAsset(image.image)"
-                        />
+                        ></el-image>
                       </button>
                     </div>
                   </template>
@@ -57,12 +59,15 @@
               <div class="flex items-center space-x-4 my-4">
                 <div>
                   <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                    <span class="text-indigo-400 mr-1 mt-1"
-                      ><img
-                        src="@/assets/fish-svgrepo-com.svg"
-                        width="30"
-                        alt=""
-                    /></span>
+                    <!-- <span class="text-indigo-400 mr-1 mt-1"
+                      >
+                      <el-image
+                         fit="cover"
+                          src="@/assets/fish-svgrepo-com.svg"
+                          width="30"
+                          alt=""
+                      ></el-image>
+                    </span> -->
                     <span class="font-bold text-indigo-600 text-3xl"
                       >{{ formatMoney(priceShow) }} đ</span
                     >
@@ -78,11 +83,7 @@
 
               <div class="flex py-4 space-x-4">
                 <div class="relative">
-                  <div
-                    class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold"
-                  >
-                    Qty
-                  </div>
+
                   <el-select
                     v-model="chooseNumProduct"
                     placeholder="Chọn số lượng"
@@ -93,12 +94,12 @@
                     <el-option
                       v-for="item in listNumbersProduct"
                       :key="item.value"
-                      :label="item.label"
+                      :label="item.label + ' Sản phẩm'"
                       :value="item.value"
                     >
                       <span style="float: left; font-weight: 600">{{
                         item.label
-                      }}</span>
+                      }} sản phẩm</span>
                     </el-option>
                   </el-select>
                 </div>
@@ -112,6 +113,20 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <swiper
+              :breakpoints="{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10
+              },
+              770: {
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+
+              771: {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }}"
               :slides-per-view="3"
               :space-between="50"
               @swiper="onSwiper"
@@ -126,10 +141,11 @@
                   class="absolute opacity-0 top-0 right-0 left-0 bottom-0"
                 ></a>
                 <div class="relative mb-4 rounded-2xl">
-                  <img
-                    class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                      <el-image
+                      fit="cover"
                     :src="`${useAsset(item.imageBg)}`"
-                  />
+                    class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                  ></el-image>
                   <div
                     class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md"
                   >
@@ -150,28 +166,6 @@
                     <span class="ml-1 text-sm text-slate-400">4</span>
                   </div>
 
-                  <a
-                    class="flex justify-center items-center bg-red-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
-                    :href="`/product/${item.sn}`"
-                    target="_self"
-                    rel="noopener noreferrer"
-                  >
-                    Xem chi tiết
-                    <svg
-                      class="ml-2 w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                      ></path>
-                    </svg>
-                  </a>
                 </div>
                 <div
                   class="flex justify-between items-left w-full pb-4 mb-auto"
@@ -192,11 +186,12 @@
                   <div class="w-full">
                     <div class="text-sm flex items-center text-gray-500 w-20">
                       Chỉ từ {{ formatMoney(item.minPrice) }}
-                      <img
-                        src="@/assets/fish-svgrepo-com.svg"
+                          <!-- <el-image
+                         fit="cover"
+                        :src="`@/assets/fish-svgrepo-com.svg`"
                         width="30"
                         alt=""
-                      />
+                      ></el-image> -->
                     </div>
                   </div>
                 </div>
@@ -223,7 +218,9 @@
       <div slots="header">
         <div class="font-bold text-[24px] pb-5">Ảnh full không che</div>
       </div>
-      <img :src="useAsset(imageShowFull.image)" alt="" />
+      <div class="flex align-middle justify-center">
+        <img class="max-h-screen-md" :src="useAsset(imageShowFull.image)" alt="" />
+      </div>
     </el-dialog>
     <Footer />
     <BackToTop />
@@ -323,7 +320,7 @@ const dataShopTeddy = reactive([
     minPrice: 85000,
     title: 'Capybara chảy mũi xanh 2 màu nâu / hồng',
     imageBg: 'capi1.jpg',
-    description: '45cm/50cm/55cm/65cm',
+    description: '45cm/ 50cm/ 55cm/ 65cm',
     listImages: [
       {
         name: 'capi1',
@@ -889,5 +886,23 @@ getProductInStore()
 <style lang="scss" scoped>
 :deep(.el-select__wrapper) {
   height: 56px;
+}
+:deep(.style-scroll) {
+  padding: 8px 0 3px 0;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    margin: 5px 0;
+    background-color: #DCDFE6;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    width: 8px;
+    background: #999999;
+  }
 }
 </style>

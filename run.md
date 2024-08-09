@@ -124,7 +124,9 @@ sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-po
 
 
 # start pm2
-pm2 start ./node_modules/nuxt/bin/nuxt.js --name="gaubongmia" -- start
+pm2 start ./node_modules/nuxt/bin/nuxt.mjs --name="gaubongmia" -- start
 
 # Check pm2 is working
 pm2 status
+
+ pm2 start ./.output/server/index.mjs --name="gaubongmia" -- start

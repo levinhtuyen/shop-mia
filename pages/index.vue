@@ -8,69 +8,73 @@
         <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
       </div>
-      <div class="py-12 max-w-7xl mx-auto">
-          <div class="relative pt-2 lg:pt-2 min-h-screen">
+        <div class="py-12 max-w-7xl mx-auto">
+            <div class="relative pt-2 lg:pt-2 min-h-screen">
 
-            <div class="bg-cover w-full flex justify-center items-center"
-                >
-                <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
-                    <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
+              <div class="bg-cover w-full flex justify-center items-center"
+                  >
+                  <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
+                      <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
+                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
 
-                            <article  v-for="(item,index) in dataShopTeddy" :key="index"
-                                class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-                                <div
-                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></div>
-                                <div  class="relative mb-4 rounded-2xl">
-                                  <nuxt-link @click="directToDetail(item)">
-                                    <a :href="`/product/${item.sn}?name=${item.title}`">
-                                    <img class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                    :src="`${useAsset(item.imageBg)}`">
-                                    </a>
-                                  </nuxt-link>
-                                    <div
-                                        class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-red-700">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                        </svg>
-                                        <span class="ml-1 text-sm text-slate-400">4</span>
+                              <article  v-for="(item,index) in dataShopTeddy" :key="index"
+                                  class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+                                  <div
+                                      class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></div>
+                                  <div  class="relative mb-4 rounded-2xl">
+                                    <nuxt-link @click="directToDetail(item)">
+                                      <a :href="`/product/${item.sn}?name=${item.title}`">
+                                      <el-image
+                                      class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        :src="`${useAsset(item.imageBg)}`"
+                                        fit="cover"
+                                        > </el-image>
+                                      </a>
+                                    </nuxt-link>
+                                      <div
+                                          class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
+                                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                              stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-red-700">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                          </svg>
+                                          <span class="ml-1 text-sm text-slate-400">4</span>
 
-                                    </div>
+                                      </div>
 
-                                </div>
-                                <div class="grid items-left w-full pb-4 mb-auto">
-                                    <div class="w-full">
-                                      <p class="text-base text-left  font-semibold line-clamp-1 " style="overflow: hidden;
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 1;">Size: {{ item.description }}</p>
-                                    </div>
-                                    <div class="w-full">
-                                        <div class="text-sm flex items-center justify-end text-gray-500 ">
-                                          Chỉ từ {{ formatMoney(item.minPrice) }} đ
-                                            <img src="@/assets/fish-svgrepo-com.svg" width="30" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3 class="font-medium text-xl leading-8">
-                                    <a :href="`/product/${item.sn}?name=${item.title}`"
-                                        class="block cursor-pointer font-bold relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
-                                        {{ item.title }}
-                                    </a>
-                                </h3>
-                                <div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                  </div>
+                                  <div class="grid items-left w-full pb-4 mb-auto">
+                                      <div class="w-full">
+                                        <p class="text-base text-left  font-semibold line-clamp-1 " style="overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;">Size: {{ item.description }}</p>
+                                      </div>
+                                      <div class="w-full">
+                                          <div class="text-sm flex items-center justify-end text-gray-500 ">
+                                            Chỉ từ {{ formatMoney(item.minPrice) }} đ
+                                                  <!-- <el-image
+                                        fit="cover" src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></el-image> -->
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <h3 class="font-medium text-xl leading-8">
+                                      <a :href="`/product/${item.sn}?name=${item.title}`"
+                                          class="block cursor-pointer font-bold relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
+                                          {{ item.title }}
+                                      </a>
+                                  </h3>
+                                  <div>
+                                  </div>
+                              </article>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
+          </div>
         </div>
-      </div>
     </div>
   </main>
   <el-drawer class="custom-drawer" :withHeader="false" v-model="drawerShare" direction="btt">
@@ -117,6 +121,7 @@ const useAsset = (path: string): string => {
   })
   return assets['/assets/shop/' + path]
 }
+const fits = reactive(['fill', 'contain', 'cover', 'none', 'scale-down'])
 const route = useRoute()
 const router = useRouter()
 console.log('router :>> ', router);
