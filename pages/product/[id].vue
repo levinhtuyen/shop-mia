@@ -202,8 +202,7 @@
                 </div>
                 <h3 class="font-medium text-xl leading-8">
                   <a
-                    href="/blog/slug"
-                  class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
+                   :href="`/product/${item.sn}`" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;

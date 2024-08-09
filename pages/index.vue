@@ -56,7 +56,7 @@ display: -webkit-box;
                                     </div>
                                 </div>
                                 <h3 class="font-medium text-xl leading-8">
-                                    <a :href="`/product/${item.sn}?name=${item.title}`">
+                                    <a :href="`/product/${item.sn}?name=${item.title}`"
                                         class="block cursor-pointer font-bold relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
                                         {{ item.title }}
                                     </a>
@@ -230,7 +230,7 @@ const dataShopTeddy = reactive([
   {
     sn:11,
     minPrice: 90000,
-    title: 'Cá sấu',
+    title: 'Sâu',
     imageBg: 'casau1.jpg',
     description: '80cm - 1m2',
     listImages: [
