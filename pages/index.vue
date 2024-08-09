@@ -9,27 +9,6 @@
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
       </div>
       <div class="py-12 max-w-7xl mx-auto">
-        <!-- <div v-for="(item,index) in dataShopTeddy" :key="index" class="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter" >
-          <div class="h-72 border-b-2 border-palette-lighter relative">
-            <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0">
-              <a :href="`/product/${item.sn}`">
-                <img  :alt="item.title"
-              :src="`${useAsset(item.imageBg)}`"
-              class="transform duration-500 ease-in-out hover:scale-110 style-image" />
-              </a>
-            </div>
-          </div>
-          <div class="h-48 relative">
-            <div class="font-primary text-palette-primary text-2xl pt-4 px-4 font-semibold" >
-              <a :href="`/product/${item.sn}`">
-                {{ item.title }}
-              </a>
-            </div>
-            <div class="text-lg text-gray-600 p-4 font-primary font-light">{{ item.description }}</div>
-            <div class="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter  rounded-tl-sm triangle flex gap-2"><span class="text-lg">Chỉ từ {{ formatMoney(item.minPrice) }}</span><img src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></div>
-          </div>
-        </div> -->
-
           <div class="relative pt-2 lg:pt-2 min-h-screen">
 
             <div class="bg-cover w-full flex justify-center items-center"
@@ -41,11 +20,15 @@
 
                             <article  v-for="(item,index) in dataShopTeddy" :key="index"
                                 class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-                                <a :href="`/product/${item.sn}`"
-                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></a>
-                                <div class="relative mb-4 rounded-2xl">
+                                <div
+                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></div>
+                                <div  class="relative mb-4 rounded-2xl">
+                                  <nuxt-link @click="directToDetail(item)">
+                                    <a :href="`/product/${item.sn}?name=${item.title}`">
                                     <img class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                     :src="`${useAsset(item.imageBg)}`">
+                                    </a>
+                                  </nuxt-link>
                                     <div
                                         class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
@@ -57,33 +40,24 @@
 
                                     </div>
 
-                                    <a class="flex justify-center items-center bg-red-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
-                                    :href="`/product/${item.sn}`" target="_self" rel="noopener noreferrer">
-                                        Xem chi tiết
-                                        <svg class="ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
-                                <div class="flex justify-between items-left w-full pb-4 mb-auto">
+                                <div class="grid items-left w-full pb-4 mb-auto">
                                     <div class="w-full">
-                                      <p class="text-base text-left w-52 font-semibold line-clamp-1 " style="overflow: hidden;
+                                      <p class="text-base text-left  font-semibold line-clamp-1 " style="overflow: hidden;
 display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 1;">Size: {{ item.description }}</p>
                                     </div>
                                     <div class="w-full">
-                                        <div class="text-sm flex items-center text-gray-500 w-20">
-                                          Chỉ từ {{ formatMoney(item.minPrice) }}
+                                        <div class="text-sm flex items-center justify-end text-gray-500 ">
+                                          Chỉ từ {{ formatMoney(item.minPrice) }} đ
                                             <img src="@/assets/fish-svgrepo-com.svg" width="30" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <h3 class="font-medium text-xl leading-8">
-                                    <a href="/blog/slug"
-                                        class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
+                                    <a :href="`/product/${item.sn}?name=${item.title}`">
+                                        class="block cursor-pointer font-bold relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
                                         {{ item.title }}
                                     </a>
                                 </h3>
@@ -145,6 +119,7 @@ const useAsset = (path: string): string => {
 }
 const route = useRoute()
 const router = useRouter()
+console.log('router :>> ', router);
 const dataShopTeddy = reactive([
 {
     sn:5,
@@ -727,7 +702,13 @@ const dataShopTeddy = reactive([
 
 ])
 const drawerShare = ref(false)
-
+const directToDetail = async (item: any) =>{
+  await router.push({
+    name:  'product-id',
+    params: { id: item.sn},
+    query: {name: item.title}
+  })
+}
 const onShareSocial = (social: string) => {
   if (!social) {
     return

@@ -10,7 +10,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'qrcode-custom.com',
+      title:
+        'Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh',
       link: [
         {
           rel: 'icon',
@@ -30,7 +31,6 @@ export default defineNuxtConfig({
   },
 
   ssr: true,
-  components: true,
 
   typescript: {
     strict: true,
@@ -42,10 +42,7 @@ export default defineNuxtConfig({
       gzip: true,
       brotli: false
     },
-    routeRules: {
-      '/': { ssr: true },
-      '/product/**': { static: true }
-    },
+    routeRules: {},
     publicAssets: [
       {
         baseURL: 'public',
@@ -79,7 +76,7 @@ export default defineNuxtConfig({
   ],
 
   gtag: {
-    id: 'G-HMD80JQ3SL'
+    // id: 'G-HMD80JQ3SL'
   },
 
   webVitals: {

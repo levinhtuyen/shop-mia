@@ -122,7 +122,7 @@
                 class="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border"
               >
                 <a
-                  :href="`/product/${item.sn}`"
+                  :href="`/product/${item.sn}?name=${item.title}`"
                   class="absolute opacity-0 top-0 right-0 left-0 bottom-0"
                 ></a>
                 <div class="relative mb-4 rounded-2xl">
@@ -253,6 +253,9 @@ const onSwiper = (swiper:any) => {
         console.log('slide change');
       };
 const route = useRoute()
+const router = useRouter()
+console.log('router :>> ', router);
+console.log('route :>> ', route);
 let imageShow = ref<any>({
   name: '',
   image: ''
