@@ -136,16 +136,15 @@
               <article
                 class="bg-white p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border"
               >
-                <a
-                  :href="`/product/${item.sn}?name=${item.title}`"
-                  class="absolute opacity-0 top-0 right-0 left-0 bottom-0"
-                ></a>
+
                 <div class="relative mb-4 rounded-2xl">
+                  <nuxt-link @click="directToDetail(item)">
                       <el-image
                       fit="cover"
                     :src="`${useAsset(item.imageBg)}`"
-                    class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                    class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                   ></el-image>
+                </nuxt-link>
                   <div
                     class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md"
                   >
@@ -167,37 +166,23 @@
                   </div>
 
                 </div>
-                <div
-                  class="flex justify-between items-left w-full pb-4 mb-auto"
-                >
-                  <div class="w-full">
-                    <p
-                      class="text-base text-left w-52 font-semibold line-clamp-1"
-                      style="
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 1;
-                      "
-                    >
-                      Size: {{ item.description }}
-                    </p>
-                  </div>
-                  <div class="w-full">
-                    <div class="text-sm flex items-center text-gray-500 w-20">
-                      Chỉ từ {{ formatMoney(item.minPrice) }}
-                          <!-- <el-image
-                         fit="cover"
-                        :src="`@/assets/fish-svgrepo-com.svg`"
-                        width="30"
-                        alt=""
-                      ></el-image> -->
-                    </div>
-                  </div>
-                </div>
+                <div class="grid items-left w-full pb-4 mb-auto">
+                                      <div class="w-full">
+                                        <p class="text-base text-left  font-semibold line-clamp-1 " style="overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;">Size: {{ item.description }}</p>
+                                      </div>
+                                      <div class="w-full">
+                                          <div class="text-sm flex items-center justify-end text-gray-500 ">
+                                            Chỉ từ {{ formatMoney(item.minPrice) }} đ
+                                                  <!-- <el-image
+                                        fit="cover" src="@/assets/fish-svgrepo-com.svg" width="30" alt=""></el-image> -->
+                                          </div>
+                                      </div>
+                                  </div>
                 <h3 class="font-medium text-xl leading-8">
-                  <a
-                   :href="`/product/${item.sn}`" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
+                  <a :href="`/product/${item.sn}?name=${item.title}`" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
@@ -256,6 +241,13 @@ let imageShow = ref<any>({
   name: '',
   image: ''
 })
+const directToDetail = async (item: any) =>{
+  await router.push({
+    name:  'product-id',
+    params: { id: item.sn},
+    query: {name: item.title}
+  })
+}
 const chooseNumProduct = ref(1)
 const listNumbersProduct = reactive([
   { value: 1, label: '1' },

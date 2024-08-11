@@ -26,7 +26,7 @@
                                     <nuxt-link @click="directToDetail(item)">
                                       <a :href="`/product/${item.sn}?name=${item.title}`">
                                       <el-image
-                                      class="max-h-80 min-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                      class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         :src="`${useAsset(item.imageBg)}`"
                                         fit="cover"
                                         > </el-image>

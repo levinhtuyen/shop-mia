@@ -8,12 +8,7 @@
         </nuxt-layout>
 
       </div>
-      <client-only>
-        <div id="fb-root"></div> <div id="fb-customer-chat" class="fb-customerchat"></div>
-        <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1578128459777697&ev=PageView&noscript=1"
-    />
-      </client-only>
+
     </DelayHydration>
   </div>
 </template>
