@@ -22,9 +22,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'vi'
       },
+
       script: [
         {
-          src: 'https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js'
+          src: 'https://www.facebook.com/tr?id=1578128459777697&ev=PageView&noscript=1'
         }
       ]
     }
