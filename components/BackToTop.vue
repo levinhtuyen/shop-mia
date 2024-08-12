@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="pagetop"  class="fixed hidden cursor-pointer bottom-8 right-12"  @click="toTop">
-      <img style="" src="@/assets/svg/backtotop.svg" alt="Free QR Code Generator - Create QR codes custom with logo"/>
+      <img style="" src="@/assets/svg/backtotop.svg" alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"/>
     </div>
   </div>
 </template>

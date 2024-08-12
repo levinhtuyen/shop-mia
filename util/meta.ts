@@ -1,7 +1,7 @@
 // @ts-ignore
 
 import { reactive, computed } from 'vue'
-export const  useMetaSeoIndex = () => {
+export const useMetaSeoIndex = () => {
   const siteData = reactive({
     title:
       'Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh',
@@ -18,7 +18,7 @@ export const  useMetaSeoIndex = () => {
     ogLink: 'https://gaubongmia.com/',
     robots: 'index, follow',
     ogImageWidth: '1200',
-    ogSideName: 'qrcode-custom.com',
+    ogSideName: 'gaubongmia.com',
     ogImageHeight: '628'
   })
 

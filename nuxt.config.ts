@@ -77,7 +77,7 @@ export default defineNuxtConfig({
   ],
 
   gtag: {
-    // id: 'G-HMD80JQ3SL'
+    id: 'G-CET8DX0SFP'
   },
 
   webVitals: {

@@ -88,7 +88,7 @@
   <el-drawer class="custom-drawer" :withHeader="false" v-model="drawerShare" direction="btt">
     <template #default>
       <div>
-        <p class="is-title-share py-4">Share QRCode Custom Generator Now!</p>
+        <p class="is-title-share py-4">Share Gấu Bông Mia Now!</p>
         <div class="md:flex md:justify-start grid grid-cols-7 gap-2">
           <img width="40" height="40" @click="onShareSocial('facebook')" src="@/assets/social/facebook.png" alt="" />
           <img width="40" height="40" @click="onShareSocial('twitter')" src="@/assets/social/twitter.png" alt="" />
