@@ -721,46 +721,46 @@ const onShareSocial = (social: string) => {
   const link = document.createElement('a');
   switch (social) {
     case 'facebook':
-      link.href = `https://www.facebook.com/sharer/sharer.php?u=https://qrcode-custom.com/`
+      link.href = `https://www.facebook.com/sharer/sharer.php?u=https://gaubongmia.com/`
       break;
     case 'twitter':
-      link.href = `https://twitter.com/share?url=https://qrcode-custom.com/&text=Free QR Code Generator for URL, vCard, location, event .... Add logo, custom colors, frames, and download in high print quality. Get your free QR Codes now!`
+      link.href = `https://twitter.com/share?url=https://gaubongmia.com/&text=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'pinterest':
-      link.href = `https://pinterest.com/pin/create/link/?url=https://qrcode-custom.com/&media=https://qrcode-custom.com/bg.png&description=Free QR Code Generator for URL, vCard, location, event .... Add logo, custom colors, frames, and download in high print quality. Get your free QR Codes now!`
+      link.href = `https://pinterest.com/pin/create/link/?url=https://gaubongmia.com/&media=https://gaubongmia.com/bg.png&description=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'linkedin':
-      link.href = `http://www.linkedin.com/shareArticle?mini=true&url=https://qrcode-custom.com/`
+      link.href = `http://www.linkedin.com/shareArticle?mini=true&url=https://gaubongmia.com/`
       break;
     case 'bufferapp':
-      link.href = `https://bufferapp.com/add?url=https://qrcode-custom.com/&text=Free QR Code Generator for URL, vCard, location, event .... Add logo, custom colors, frames, and download in high print quality. Get your free QR Codes now!`
+      link.href = `https://bufferapp.com/add?url=https://gaubongmia.com/&text=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'diggit':
-      link.href = `http://www.digg.com/submit?url=https://qrcode-custom.com/`
+      link.href = `http://www.digg.com/submit?url=https://gaubongmia.com/`
       break;
     case 'email':
-      link.href = `mailto:?Subject=Free QR Code Generator - Create QR codes custom with logo&Body=Free QR Code Generator for URL, vCard, location, event .... Add logo, custom colors, frames, and download in high print quality. Get your free QR Codes now! https://qrcode-custom.com/`
+      link.href = `mailto:?Subject=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng&Body=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng https://gaubongmia.com/`
       break;
     case 'print':
       window.print()
       break;
     case 'reddit':
-      link.href = `http://reddit.com/submit?url=https://qrcode-custom.com/&title=Free QR Code Generator - Create QR codes custom with logo`
+      link.href = `http://reddit.com/submit?url=https://gaubongmia.com/&title=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'stumbleupon':
-      link.href = `http://www.stumbleupon.com/submit?url=https://qrcode-custom.com/&title=Free QR Code Generator - Create QR codes custom with logo`
+      link.href = `http://www.stumbleupon.com/submit?url=https://gaubongmia.com/&title=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'tumblr':
-      link.href = `https://www.tumblr.com/share/link?url=https://qrcode-custom.com/&title=Free QR Code Generator - Create QR codes custom with logo`
+      link.href = `https://www.tumblr.com/share/link?url=https://gaubongmia.com/&title=Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     case 'vk':
-      link.href = `http://vkontakte.ru/share.php?url=https://qrcode-custom.com/`
+      link.href = `http://vkontakte.ru/share.php?url=https://gaubongmia.com/`
       break;
     case 'yummly':
-      link.href = `http://www.yummly.com/urb/verify?url=https://qrcode-custom.com/&title=TFree QR Code Generator - Create QR codes custom with logo`
+      link.href = `http://www.yummly.com/urb/verify?url=https://gaubongmia.com/&title=TXưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng`
       break;
     default:
-      link.href = `https://www.facebook.com/sharer/sharer.php?url=https://qrcode-custom.com/`
+      link.href = `https://www.facebook.com/sharer/sharer.php?url=https://gaubongmia.com/`
   }
   link.target = '_blank';
   document.body.appendChild(link);
