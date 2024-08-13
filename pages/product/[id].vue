@@ -44,7 +44,7 @@
                           fit="cover"
                           loading="lazy" 
                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                              sizes="100vw sm:50vw md:400px lg:400px"
+                              sizes="100vw sm:50vw "
                           /> 
                       </button>
                     </div>
