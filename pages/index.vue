@@ -2,8 +2,8 @@
 <div>
   <Header />
   <!-- Main -->
-  <main class="pt-24">
-    <div class="mx-auto max-w-6xl">
+  <main class="bg-[#fbf3f4]">
+    <div class="mx-auto max-w-6xl bg-white pt-24">
       <div class="">
         <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
@@ -21,25 +21,23 @@
 
               <div class="bg-cover w-full flex justify-center items-center"
                   >
-                  <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
+                  <div class="w-full  p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
                       <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
 
                           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
 
                               <article  v-for="(item,index) in dataShopTeddy" :key="index"
-                                  class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-                                  <div
-                                      class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></div>
-                                  <div  class="relative mb-4 rounded-2xl">
-                                    <nuxt-link @click="directToDetail(item)">
-                                      <a :href="`/product/${item.sn}?name=${item.title}`">
-                                      <el-image
-                                      class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                        :src="`${useAsset(item.imageBg)}`"
-                                        fit="cover"
-                                        > </el-image>
+                                  class="relative p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+                                  <div  class=" mb-4 rounded-2xl">
+                                      <a :href="`/product/${item.sn}?name=${item.title}`" class="w-full block h-full">
+                                        <el-image
+                                        class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                          :src="`${useAsset(item.imageBg)}`"
+                                          lazy
+                                          alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                                          fit="cover"
+                                          /> 
                                       </a>
-                                    </nuxt-link>
                                       <div
                                           class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
                                           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
@@ -108,7 +106,9 @@
     </template>
   </el-drawer>
   <Footer />
-  <BackToTop />
+  <client-only>
+    <BackToTop />
+  </client-only>
 </div>
 </template>
 
@@ -132,7 +132,6 @@ const useAsset = (path: string): string => {
 const fits = reactive(['fill', 'contain', 'cover', 'none', 'scale-down'])
 const route = useRoute()
 const router = useRouter()
-console.log('router :>> ', router);
 const dataShopTeddy = reactive([
   {
     sn:5,

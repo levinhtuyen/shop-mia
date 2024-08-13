@@ -18,7 +18,6 @@ const loading = ref(false);
 
 </script>
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap');
 * {
   font-family: 'Work Sans', sans-serif;
 }

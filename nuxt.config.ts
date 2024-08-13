@@ -17,6 +17,10 @@ export default defineNuxtConfig({
           rel: 'icon',
           type: 'image/x-icon',
           href: 'https://gaubongmia.com/favicon.ico'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap'
         }
       ],
       htmlAttrs: {
@@ -25,7 +29,7 @@ export default defineNuxtConfig({
 
       script: [
         {
-          src: 'https://www.facebook.com/tr?id=1578128459777697&ev=PageView&noscript=1'
+          src: ''
         }
       ]
     }

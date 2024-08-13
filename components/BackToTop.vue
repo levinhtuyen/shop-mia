@@ -14,12 +14,12 @@ const toTop = () => {
     behavior: 'smooth',
   })
 
-  let mybutton = document.getElementById('pagetop')
+  let mybutton = document.getElementById('pagetop') as any
   mybutton.style.display = 'none'
 }
 onMounted(() => {
   document.addEventListener('wheel', (event) => {
-  let mybutton = document.getElementById('pagetop')
+  let mybutton = document.getElementById('pagetop') as any
 
     var prev = event.pageY
     if (prev > 300) {

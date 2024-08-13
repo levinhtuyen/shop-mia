@@ -13,9 +13,11 @@
                     class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center cursor-pointer"
                   >
                         <el-image
+                        
                        fit="cover"
                       @click="showImage(imageShow)"
                       style="height: 100%"
+                      lazy
                       :alt="imageShow.name"
                       :src="useAsset(imageShow.image)"
                     ></el-image>
@@ -140,7 +142,7 @@
                 <div class="relative mb-4 rounded-2xl">
                   <nuxt-link @click="directToDetail(item)">
                       <el-image
-                      fit="cover"
+                      fit="cover" lazy
                     :src="`${useAsset(item.imageBg)}`"
                     class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                   ></el-image>
