@@ -15,11 +15,11 @@
                     <NuxtImg
                       @click="showImage(imageShow)"
                       :src="imageShow.image"
-                      fit="cover"
+                    
                       class="h-64 md:h-80"
                       loading="lazy" 
                       alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                          sizes="100vw sm:50vw md:400px"
+                    
                       /> 
                   </div>
                 </div>
@@ -40,11 +40,10 @@
                       >  
                         <NuxtImg
                           :src="image.image"
-                          width="100" height="150"
-                          fit="cover"
+                  
                           loading="lazy" 
                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                              sizes="100vw sm:50vw "
+                  
                           /> 
                       </button>
                     </div>
