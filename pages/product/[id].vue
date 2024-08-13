@@ -38,13 +38,14 @@
                         }"
                         class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
                       >  
-                        <NuxtImg
+                        <el-image
                           :src="image.image"
                   
-                          loading="lazy" 
+                           
                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
                   
-                          /> 
+                          fit="cover"
+                                        > </el-image>
                       </button>
                     </div>
                   </template>
@@ -138,15 +139,14 @@
 
                 <div class="relative mb-4 rounded-2xl">
                   <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="w-full block h-full">
-                    <NuxtImg
+                    <el-image
                     class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                     :src="item.imageBg"
-                    width="200" height="100"
-                    fit="cover"
-                    loading="lazy" 
+              
                     alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                        sizes="100vw sm:50vw md:400px"
-                    /> 
+                        
+                    fit="cover"
+                                        > </el-image>
                 </a>
                   <div
                     class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md"
@@ -184,7 +184,7 @@
                                           </div>
                                       </div>
                                   </div>
-                <h3 class="font-medium text-xl leading-8">
+                <h4 class="font-medium text-xl leading-8">
                   <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
                         overflow: hidden;
                         display: -webkit-box;
@@ -194,7 +194,7 @@
                   >
                     {{ item.title }}
                   </a>
-                </h3>
+                </h4>
                 <div></div>
               </article>
             </swiper-slide>
