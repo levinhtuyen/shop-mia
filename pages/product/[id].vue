@@ -14,7 +14,7 @@
                   >
                     <el-image
                       @click="showImage(imageShow)"
-                      :src="`${useAsset(item.imageBg)}`"
+                      :src="useAsset(imageShow.image)"
                     
                       class="h-64 md:h-80"
                       alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
@@ -39,7 +39,7 @@
                         class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
                       >  
                         <el-image
-                          :src="image.image"
+                          :src="useAsset(image.image)"
                   
                            
                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
