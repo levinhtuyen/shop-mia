@@ -30,12 +30,14 @@
                                   class="relative p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
                                   <div  class=" mb-4 rounded-2xl">
                                       <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="w-full block h-full">
-                                        <el-image
-                                        class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                          :src="`${useAsset(item.imageBg)}`"
-                                          lazy
-                                          alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                                        <NuxtImg
+                                          class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                          :src="item.imageBg"
+                                          width="200" height="100"
                                           fit="cover"
+                                          loading="lazy" 
+                                          alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                                             sizes="100vw sm:50vw md:400px"
                                           /> 
                                       </a>
                                       <div

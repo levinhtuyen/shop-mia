@@ -12,15 +12,15 @@
                   <div
                     class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center cursor-pointer"
                   >
-                        <el-image
-                        
-                       fit="cover"
+                    <NuxtImg
                       @click="showImage(imageShow)"
-                      style="height: 100%"
-                      lazy
-                      :alt="imageShow.name"
-                      :src="useAsset(imageShow.image)"
-                    ></el-image>
+                      :src="imageShow.image"
+                      fit="cover"
+                      class="h-64 md:h-80"
+                      loading="lazy" 
+                      alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                          sizes="100vw sm:50vw md:400px"
+                      /> 
                   </div>
                 </div>
 
@@ -37,13 +37,15 @@
                             image.name === imageShow.name
                         }"
                         class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
-                      >
-                            <el-image
+                      >  
+                        <NuxtImg
+                          :src="image.image"
+                          width="100" height="150"
                           fit="cover"
-                          style="height: 75px;width: 75px"
-                          :alt="image.name"
-                          :src="useAsset(image.image)"
-                        ></el-image>
+                          loading="lazy" 
+                          alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                              sizes="100vw sm:50vw md:400px lg:400px"
+                          /> 
                       </button>
                     </div>
                   </template>
@@ -61,15 +63,7 @@
               <div class="flex items-center space-x-4 my-4">
                 <div>
                   <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                    <!-- <span class="text-indigo-400 mr-1 mt-1"
-                      >
-                      <el-image
-                         fit="cover"
-                          src="@/assets/fish-svgrepo-com.svg"
-                          width="30"
-                          alt=""
-                      ></el-image>
-                    </span> -->
+        
                     <span class="font-bold text-indigo-600 text-3xl"
                       >{{ formatMoney(chooseNumProduct.price) }} đ</span
                     >
@@ -144,13 +138,17 @@
               >
 
                 <div class="relative mb-4 rounded-2xl">
-                  <nuxt-link @click="directToDetail(item)">
-                      <el-image
-                      fit="cover" lazy
-                    :src="`${useAsset(item.imageBg)}`"
+                  <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="w-full block h-full">
+                    <NuxtImg
                     class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                  ></el-image>
-                </nuxt-link>
+                    :src="item.imageBg"
+                    width="200" height="100"
+                    fit="cover"
+                    loading="lazy" 
+                    alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
+                        sizes="100vw sm:50vw md:400px"
+                    /> 
+                </a>
                   <div
                     class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md"
                   >
@@ -188,7 +186,7 @@
                                       </div>
                                   </div>
                 <h3 class="font-medium text-xl leading-8">
-                  <a :href="`/product/${item.sn}?name=${item.title}`" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
+                  <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="block relative group-hover:text-red-700 transition-colors duration-200 line-clamp-1" style="
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
