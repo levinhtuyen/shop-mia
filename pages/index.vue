@@ -8,7 +8,7 @@
         <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
         <div class="flex justify-center pt-6">
-          <el-button type="primary" @click="drawerShare = true">
+          <el-button type="warning" @click="drawerShare = true" size="large">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M21,0c-2.76172,0 -5,2.23828 -5,5c0,0.08594 0.02734,0.16406 0.03125,0.25l-7.84375,3.9375c-0.86719,-0.73047 -1.96484,-1.1875 -3.1875,-1.1875c-2.76172,0 -5,2.23828 -5,5c0,2.76172 2.23828,5 5,5c1.22266,0 2.32031,-0.45703 3.1875,-1.1875l7.84375,3.9375c-0.00391,0.08594 -0.03125,0.16406 -0.03125,0.25c0,2.76172 2.23828,5 5,5c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5c-1.22266,0 -2.32031,0.45703 -3.1875,1.1875l-7.84375,-3.9375c0.00391,-0.08594 0.03125,-0.16406 0.03125,-0.25c0,-0.08594 -0.02734,-0.16406 -0.03125,-0.25l7.84375,-3.9375c0.86719,0.73047 1.96484,1.1875 3.1875,1.1875c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5z"></path></g></g>
 </svg> &nbsp;
@@ -24,12 +24,12 @@
                   <div class="w-full  p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
                       <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
 
-                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
+                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto demo-image__lazy">
 
                               <article  v-for="(item,index) in dataShopTeddy" :key="index"
                                   class="relative p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
                                   <div  class=" mb-4 rounded-2xl">
-                                      <a :href="`/product/${item.sn}?name=${item.title}`" class="w-full block h-full">
+                                      <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title" class="w-full block h-full">
                                         <el-image
                                         class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                           :src="`${useAsset(item.imageBg)}`"
@@ -65,12 +65,12 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <h3 class="font-medium text-xl leading-8">
-                                      <a :href="`/product/${item.sn}?name=${item.title}`"
+                                  <p class="font-medium text-xl leading-8">
+                                      <a :href="`/product/${item.sn}?name=${item.title}`" :aria-label="item.title" :rel="item.title"
                                           class="block cursor-pointer font-bold relative group-hover:text-red-700 transition-colors duration-200 line-clamp-2">
                                           {{ item.title }}
                                       </a>
-                                  </h3>
+                                  </p>
                                   <div>
                                   </div>
                               </article>
@@ -1005,69 +1005,16 @@ useHead({
 .work-sans {
   font-family: 'Work Sans', sans-serif;
 }
-.style-image {
-  position:absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  box-sizing:border-box;
-  padding:0;
-  border:none;
-  margin:auto;
-  display:block;
-  width:0;
-  height:0;
-  min-width:100%;
-  max-width:100%;
-  min-height:100%;
-  max-height:100%
+.demo-image__lazy {
+  height: 400px;
+  overflow-y: auto;
 }
-#menu-toggle:checked+#menu {
+.demo-image__lazy .el-image {
   display: block;
+  min-height: 200px;
+  margin-bottom: 10px;
 }
-
-.hover\:grow {
-  transition: all 0.3s;
-  transform: scale(1);
-}
-
-.hover\:grow:hover {
-  transform: scale(1.02);
-}
-
-.carousel-open:checked+.carousel-item {
-  position: static;
-  opacity: 100;
-}
-
-.carousel-item {
-  -webkit-transition: opacity 0.6s ease-out;
-  transition: opacity 0.6s ease-out;
-}
-
-#carousel-1:checked~.control-1,
-#carousel-2:checked~.control-2,
-#carousel-3:checked~.control-3 {
-  display: block;
-}
-
-.carousel-indicators {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 2%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 10;
-}
-
-#carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
-#carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
-#carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
-  color: #000;
-  /*Set to match the Tailwind colour you want the active one to be */
+.demo-image__lazy .el-image:last-child {
+  margin-bottom: 0;
 }
 </style>

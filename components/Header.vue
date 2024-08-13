@@ -7,10 +7,9 @@
       >
         <a class="cursor-pointer" href="/">
           <h1 class="flex no-underline items-center gap-2">
-
-            <img
+            <img width="145" height="145"
               class="w-[145px] rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                src="@/assets/logo.gif"
+                src="@/assets/logo.webp"
                 lazy
                 alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
                 fit="cover"/> 
