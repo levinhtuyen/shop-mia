@@ -8,11 +8,11 @@
         <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
         <div class="flex justify-center pt-6">
-          <el-button type="primary" @click="drawerShare = true" size="large">
+          <el-button class="middle none center rounded-lg !bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md !shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"  @click="drawerShare = true" size="large">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M21,0c-2.76172,0 -5,2.23828 -5,5c0,0.08594 0.02734,0.16406 0.03125,0.25l-7.84375,3.9375c-0.86719,-0.73047 -1.96484,-1.1875 -3.1875,-1.1875c-2.76172,0 -5,2.23828 -5,5c0,2.76172 2.23828,5 5,5c1.22266,0 2.32031,-0.45703 3.1875,-1.1875l7.84375,3.9375c-0.00391,0.08594 -0.03125,0.16406 -0.03125,0.25c0,2.76172 2.23828,5 5,5c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5c-1.22266,0 -2.32031,0.45703 -3.1875,1.1875l-7.84375,-3.9375c0.00391,-0.08594 0.03125,-0.16406 0.03125,-0.25c0,-0.08594 -0.02734,-0.16406 -0.03125,-0.25l7.84375,-3.9375c0.86719,0.73047 1.96484,1.1875 3.1875,1.1875c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5z"></path></g></g>
 </svg> &nbsp;
-           <p class="font-semibold text-[16px] text-white">Chia sẻ</p>
+           <p class="font-semibold text-white">Chia sẻ</p>
         </el-button>
         </div>
       </div>
@@ -35,7 +35,6 @@
                                           :src="item.imageBg"
                                           width="200" height="100"
                                           fit="cover"
-                                          loading="lazy" 
                                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
                                              sizes="100vw sm:50vw md:400px"
                                           /> 
