@@ -71,7 +71,7 @@
                       ></el-image>
                     </span> -->
                     <span class="font-bold text-indigo-600 text-3xl"
-                      >{{ formatMoney(priceShow) }} đ</span
+                      >{{ formatMoney(chooseNumProduct.price) }} đ</span
                     >
                   </div>
                 </div>
@@ -93,15 +93,19 @@
                     style="width: 240px; height: 56px"
                     @change="changeNumberProduct"
                   >
+                    <template #label="{ label, value }">
+                      <span class="hidden">{{ label.label }}: </span>
+                      <span style="font-weight: bold; text-[24px]">{{ value.label }}</span>
+                    </template>
                     <el-option
-                      v-for="item in listNumbersProduct"
-                      :key="item.value"
-                      :label="item.label + ' Sản phẩm'"
-                      :value="item.value"
+                      v-for="item in productById.priceOption"
+                      :key="item.label"
+                      :label="item.label "
+                      :value="item"
                     >
-                      <span style="float: left; font-weight: 600">{{
+                      <span style="float: left; font-weight: 600; text-indigo-600">{{
                         item.label
-                      }} sản phẩm</span>
+                      }}</span>
                     </el-option>
                   </el-select>
                 </div>
@@ -250,27 +254,12 @@ const directToDetail = async (item: any) =>{
     query: {name: item.title}
   })
 }
-const chooseNumProduct = ref(1)
-const listNumbersProduct = reactive([
-  { value: 1, label: '1' },
-  { value: 2, label: '2' },
-  { value: 3, label: '3' },
-  { value: 4, label: '4' },
-  { value: 5, label: '5' },
-  { value: 6, label: '6' },
-  { value: 7, label: '7' },
-  { value: 8, label: '8' },
-  { value: 9, label: '9' },
-  { value: 10, label: '10' },
-  { value: 11, label: '11' },
-  { value: 12, label: '12' },
-  { value: 13, label: '13' },
-  { value: 14, label: '14' }
-])
+const chooseNumProduct = ref({})
+
 const dataShopTeddy = reactive([
   {
-    sn: 5,
-    minPrice: 75000,
+    sn:5,
+    minPrice: 125000,
     title: 'Teddy mặc áo, ôm tim, thắt nơ, đủ màu',
     imageBg: 'teddy6.jpg',
     description: '45cm/ 60cm / 80cm / 1m / m2 / m4 / m6',
@@ -307,11 +296,48 @@ const dataShopTeddy = reactive([
         name: '12',
         image: '12.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '45cm',
+        price: 125000
+      },
+      {
+        idPrice: 2,
+        label: '60cm',
+        price: 180000
+      },
+      {
+        idPrice: 3,
+        label: '80cm',
+        price: 240000
+      },
+      {
+        idPrice: 4,
+        label: '1m',
+        price: 340000
+      },
+      {
+        idPrice: 5,
+        label: '1m2',
+        price: 420000
+      },
+      {
+        idPrice: 6,
+        label: '1m4',
+        price: 490000
+      },
+      {
+        idPrice: 7,
+        label: '1m6',
+        price: 540000
+      },
     ]
   },
   {
-    sn: 10,
-    minPrice: 85000,
+    sn:10,
+    minPrice: 135000,
     title: 'Capybara chảy mũi xanh 2 màu nâu / hồng',
     imageBg: 'capi1.jpg',
     description: '45cm/ 50cm/ 55cm/ 65cm',
@@ -372,12 +398,34 @@ const dataShopTeddy = reactive([
         name: 'capi14',
         image: 'capi14.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '45cm',
+        price: 135000
+      },
+      {
+        idPrice: 2,
+        label: '50cm',
+        price: 155000
+      },
+      {
+        idPrice: 3,
+        label: '55cm',
+        price: 195000
+      },
+      {
+        idPrice: 4,
+        label: '65cm',
+        price: 245000
+      }
     ]
   },
   {
-    sn: 11,
-    minPrice: 90000,
-    title: 'Cá sấu',
+    sn:11,
+    minPrice: 140000,
+    title: 'Sâu',
     imageBg: 'casau1.jpg',
     description: '80cm - 1m2',
     listImages: [
@@ -393,11 +441,23 @@ const dataShopTeddy = reactive([
         name: 'sau3',
         image: 'sau3.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '80cm',
+        price: 140000
+      },
+      {
+        idPrice: 2,
+        label: '1m2',
+        price: 210000
+      }
     ]
   },
   {
-    sn: 12,
-    minPrice: 130000,
+    sn:12,
+    minPrice: 180000,
     title: 'Sâu đủ màu',
     imageBg: 'sau2.jpg',
     description: '1m con này làm size bao nhiêu cũng được, 2m cũng làm',
@@ -410,11 +470,23 @@ const dataShopTeddy = reactive([
         name: 'casau2',
         image: 'casau2.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '1m',
+        price: 180000
+      },
+      {
+        idPrice: 2,
+        label: 'Size theo yêu cầu (2m cũng có liên hệ)',
+        price: 0
+      }
     ]
   },
   {
-    sn: 13,
-    minPrice: 140000,
+    sn:13,
+    minPrice: 190000,
     title: 'Heo trùm',
     imageBg: 'thotaidai1.jpg',
     description: '2 size 55cm 65cm',
@@ -435,11 +507,23 @@ const dataShopTeddy = reactive([
         name: 'heonontrum4',
         image: 'heonontrum4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '55cm',
+        price: 190000
+      },
+      {
+        idPrice: 2,
+        label: '65cm',
+        price: 230000
+      }
     ]
   },
   {
-    sn: 13,
-    minPrice: 180000,
+    sn:13,
+    minPrice: 230000,
     title: 'Thỏ tai dài',
     imageBg: 'heonontrum1.jpg',
     description: '60cm / 70cm',
@@ -452,11 +536,23 @@ const dataShopTeddy = reactive([
         name: 'thotaidai1',
         image: 'thotaidai1.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 230000
+      },
+      {
+        idPrice: 2,
+        label: '70cm',
+        price: 280000
+      }
     ]
   },
   {
-    sn: 13,
-    minPrice: 95000,
+    sn:13,
+    minPrice: 145000,
     title: 'Búp bê ôm bình',
     imageBg: 'bupbeombinh3.jpg',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -477,11 +573,33 @@ const dataShopTeddy = reactive([
         name: 'bupbeombinh4',
         image: 'bupbeombinh4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 145000
+      },
+      {
+        idPrice: 2,
+        label: '50cm',
+        price: 180000
+      },
+      {
+        idPrice: 3,
+        label: '60cm',
+        price: 210000
+      },
+      {
+        idPrice: 4,
+        label: '70cm',
+        price: 270000
+      }
     ]
   },
   {
-    sn: 14,
-    minPrice: 90000,
+    sn:14,
+    minPrice: 140000,
     title: 'Kuromi',
     imageBg: 'kurumi2.jpg',
     description: '40cm / 50cm / 60cm',
@@ -510,10 +628,27 @@ const dataShopTeddy = reactive([
         name: 'kurumi6',
         image: 'kurumi6.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '40cm',
+        price: 140000
+      },
+      {
+        idPrice: 2,
+        label: '50cm',
+        price: 170000
+      },
+      {
+        idPrice: 3,
+        label: '60cm',
+        price: 200000
+      }
     ]
   },
   {
-    sn: 15,
+    sn:15,
     minPrice: 65000,
     title: 'Doremon, nobita, xuka',
     imageBg: 'xuka3.jpg',
@@ -584,11 +719,63 @@ const dataShopTeddy = reactive([
         name: 'nobita3',
         image: 'nobita3.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: 'Doremon 50cm',
+        price: 160000
+      },
+      {
+        idPrice: 2,
+        label: 'Doremon 75cm',
+        price: 230000
+      },
+      {
+        idPrice: 3,
+        label: 'Doremon 1m',
+        price: 320000
+      },
+      {
+        idPrice: 4,
+        label: 'Nobita / xuka 50cm',
+        price: 115000
+      },
+      {
+        idPrice: 5,
+        label: 'Nobita / xuka 60cm',
+        price: 135000
+      },
+      {
+        idPrice: 6,
+        label: 'Nobita / xuka 70cm',
+        price: 170000
+      },
+      {
+        idPrice: 7,
+        label: 'Nobita / xuka 80cm',
+        price: 210000
+      },
+      {
+        idPrice: 8,
+        label: 'Doremon ôm bánh 50cm',
+        price: 170000
+      },
+      {
+        idPrice: 9,
+        label: 'Doremon ôm bánh 75cm',
+        price: 240000
+      },
+      {
+        idPrice: 10,
+        label: 'Doremon ôm bánh 1m',
+        price: 330000
+      }
     ]
   },
   {
-    sn: 16,
-    minPrice: 80000,
+    sn:16,
+    minPrice: 130000,
     title: 'Gấu cosplay pikachu',
     imageBg: 'pikachu4.jpg',
     description: '35cm',
@@ -609,11 +796,18 @@ const dataShopTeddy = reactive([
         name: 'pikachu4',
         image: 'pikachu4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 130000
+      }
     ]
   },
   {
-    sn: 16,
-    minPrice: 120000,
+    sn:16,
+    minPrice: 170000,
     title: 'Gấu dâu',
     imageBg: 'gaudau2.jpg',
     description: '45cm / 60cm / 80cm',
@@ -634,29 +828,58 @@ const dataShopTeddy = reactive([
         name: 'gaudau4',
         image: 'gaudau4.jpg'
       }
-    ]
-  },
-  {
-    sn: 1,
-    minPrice: 140000,
-    imageBg: '71.jpg',
-    title: 'Gấu trúc ôm dâu',
-    description: '2 size 60cm, 70cm',
-    listImages: [
+    ],
+    priceOption: [
       {
-        name: '71',
-        image: '71.jpg'
+        idPrice: 1,
+        label: '45cm',
+        price: 170000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 230000
+      },
+      {
+        idPrice: 1,
+        label: '80cm',
+        price: 280000
       }
     ]
   },
   {
-    sn: 2,
-    minPrice: 105000,
+    sn:1,
+    minPrice: 190000,
+    imageBg: '71.jpg',
+    title: 'Gấu trúc ôm dâu',
+    description: '2 size 60cm, 70cm',
+    listImages: [
+    {
+        name: '71',
+        image: '71.jpg'
+      },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 190000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 225000
+      }
+    ]
+  },
+  {
+    sn:2,
+    minPrice: 155000,
     imageBg: '101.jpg',
     title: 'Heo ôm bình',
     description: '45cm / 55cm / 65cm / 75cm',
     listImages: [
-      {
+    {
         name: 'heoombinh9',
         image: 'heoombinh9.jpg'
       },
@@ -691,25 +914,69 @@ const dataShopTeddy = reactive([
       {
         name: 'heoombinh1',
         image: 'heoombinh1.jpg'
+      },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '45cm',
+        price: 155000
+      },
+      {
+        idPrice: 1,
+        label: '55cm',
+        price: 195000
+      },
+      {
+        idPrice: 1,
+        label: '65cm',
+        price: 250000
+      },
+      {
+        idPrice: 1,
+        label: '75cm',
+        price: 320000
       }
     ]
   },
   {
-    sn: 3,
-    minPrice: 95000,
+    sn:3,
+    minPrice: 145000,
     imageBg: '81.jpg',
     title: 'Búp bê ôm bình',
     description: '35cm / 50cm / 60cm / 70cm',
     listImages: [
-      {
+    {
         name: '81',
         image: '81.jpg'
+      },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 145000
+      },
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 180000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 210000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 270000
       }
     ]
   },
   {
-    sn: 4,
-    minPrice: 95000,
+    sn:4,
+    minPrice: 145000,
     imageBg: 'heobaby6.jpg',
     title: 'Heo baby ',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -749,13 +1016,35 @@ const dataShopTeddy = reactive([
       {
         name: 'heobaby9',
         image: 'heobaby9.jpg'
+      },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 145000
+      },
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 180000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 210000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 270000
       }
     ]
   },
 
   {
-    sn: 7,
-    minPrice: 120000,
+    sn:7,
+    minPrice: 170000,
     title: 'Doremon ôm bánh',
     imageBg: '99.jpg',
     description: '50cm / 75cm/ 1m',
@@ -764,24 +1053,28 @@ const dataShopTeddy = reactive([
         name: '99',
         image: '99.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 170000
+      },
+      {
+        idPrice: 1,
+        label: '75cm',
+        price: 240000
+      },
+      {
+        idPrice: 1,
+        label: '1m',
+        price: 330000
+      }
     ]
   },
-  // {
-  //   sn:8,
-  //   minPrice: 'Rẻ như cho',
-  //   title: 'Nobita / xuka',
-  //   imageBg: '99.jpg',
-  //   description: '50cm / 60cm / 70cm / 80cm',
-  //   listImages: [
-  //     {
-  //       name: '99',
-  //       image: '99.jpg'
-  //     }
-  //   ]
-  // },
   {
-    sn: 8,
-    minPrice: 90000,
+    sn:8,
+    minPrice: 140000,
     title: 'Báo hồng',
     imageBg: 'baohong3.jpg',
     description: '70cm / 1m / m3',
@@ -802,11 +1095,28 @@ const dataShopTeddy = reactive([
         name: 'baohong4',
         image: 'baohong4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 140000
+      },
+      {
+        idPrice: 1,
+        label: '1m',
+        price: 190000
+      },
+      {
+        idPrice: 1,
+        label: '1m3',
+        price: 220000
+      }
     ]
   },
   {
-    sn: 9,
-    minPrice: 100000,
+    sn:9,
+    minPrice: 150000,
     title: 'Hải ly cosplay gấu dâu',
     imageBg: '91.jpg',
     description: '40cm / 50cm / 60cm',
@@ -844,8 +1154,16 @@ const dataShopTeddy = reactive([
         name: 'loopy6',
         image: 'loopy6.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 150000
+      }
     ]
   }
+
 ])
 let productById = ref<any>({})
 const numIdProduct = ref(route.params.id ? Number(route.params.id) : 1)
@@ -863,7 +1181,7 @@ const getProductInStore = () => {
     }
   })[0]
   imageShow.value = productById.value.listImages[0]
-  priceShow.value = productById.value.minPrice
+  chooseNumProduct.value = productById.value.priceOption[0]
 }
 const changeNumberProduct = (numberProduct: number) => {
   if (!numberProduct) {

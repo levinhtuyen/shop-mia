@@ -8,11 +8,11 @@
         <h1 class="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">Gấu bông giá rẻ - Giá tại xưởng</h1>
         <p class="max-w-xl text-center px-2 mx-auto text-base text-gray-600"> Gấu bông giá rẻ, hợp túi tiền, mua gấu tại kho gấu bông của MIA shop bạn yên tâm về giá cả, chất lượng, hậu mãi tốt nhất. Shop có ship toàn quốc. 🐶</p>
         <div class="flex justify-center pt-6">
-          <el-button type="warning" @click="drawerShare = true" size="large">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+          <el-button type="primary" @click="drawerShare = true" size="large">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M21,0c-2.76172,0 -5,2.23828 -5,5c0,0.08594 0.02734,0.16406 0.03125,0.25l-7.84375,3.9375c-0.86719,-0.73047 -1.96484,-1.1875 -3.1875,-1.1875c-2.76172,0 -5,2.23828 -5,5c0,2.76172 2.23828,5 5,5c1.22266,0 2.32031,-0.45703 3.1875,-1.1875l7.84375,3.9375c-0.00391,0.08594 -0.03125,0.16406 -0.03125,0.25c0,2.76172 2.23828,5 5,5c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5c-1.22266,0 -2.32031,0.45703 -3.1875,1.1875l-7.84375,-3.9375c0.00391,-0.08594 0.03125,-0.16406 0.03125,-0.25c0,-0.08594 -0.02734,-0.16406 -0.03125,-0.25l7.84375,-3.9375c0.86719,0.73047 1.96484,1.1875 3.1875,1.1875c2.76172,0 5,-2.23828 5,-5c0,-2.76172 -2.23828,-5 -5,-5z"></path></g></g>
 </svg> &nbsp;
-           Chia sẻ
+           <p class="font-semibold text-[16px] text-white">Chia sẻ</p>
         </el-button>
         </div>
       </div>
@@ -683,7 +683,7 @@ const dataShopTeddy = reactive([
   },
   {
     sn:16,
-    minPrice: 120000,
+    minPrice: 170000,
     title: 'Gấu dâu',
     imageBg: 'gaudau2.jpg',
     description: '45cm / 60cm / 80cm',
@@ -704,11 +704,28 @@ const dataShopTeddy = reactive([
         name: 'gaudau4',
         image: 'gaudau4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '45cm',
+        price: 170000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 230000
+      },
+      {
+        idPrice: 1,
+        label: '80cm',
+        price: 280000
+      }
     ]
   },
   {
     sn:1,
-    minPrice: 140000,
+    minPrice: 190000,
     imageBg: '71.jpg',
     title: 'Gấu trúc ôm dâu',
     description: '2 size 60cm, 70cm',
@@ -717,11 +734,23 @@ const dataShopTeddy = reactive([
         name: '71',
         image: '71.jpg'
       },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 190000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 225000
+      }
     ]
   },
   {
     sn:2,
-    minPrice: 105000,
+    minPrice: 155000,
     imageBg: '101.jpg',
     title: 'Heo ôm bình',
     description: '45cm / 55cm / 65cm / 75cm',
@@ -762,11 +791,33 @@ const dataShopTeddy = reactive([
         name: 'heoombinh1',
         image: 'heoombinh1.jpg'
       },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '45cm',
+        price: 155000
+      },
+      {
+        idPrice: 1,
+        label: '55cm',
+        price: 195000
+      },
+      {
+        idPrice: 1,
+        label: '65cm',
+        price: 250000
+      },
+      {
+        idPrice: 1,
+        label: '75cm',
+        price: 320000
+      }
     ]
   },
   {
     sn:3,
-    minPrice: 95000,
+    minPrice: 145000,
     imageBg: '81.jpg',
     title: 'Búp bê ôm bình',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -775,11 +826,33 @@ const dataShopTeddy = reactive([
         name: '81',
         image: '81.jpg'
       },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 145000
+      },
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 180000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 210000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 270000
+      }
     ]
   },
   {
     sn:4,
-    minPrice: 95000,
+    minPrice: 145000,
     imageBg: 'heobaby6.jpg',
     title: 'Heo baby ',
     description: '35cm / 50cm / 60cm / 70cm',
@@ -820,12 +893,34 @@ const dataShopTeddy = reactive([
         name: 'heobaby9',
         image: 'heobaby9.jpg'
       },
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '35cm',
+        price: 145000
+      },
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 180000
+      },
+      {
+        idPrice: 1,
+        label: '60cm',
+        price: 210000
+      },
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 270000
+      }
     ]
   },
 
   {
     sn:7,
-    minPrice: 120000,
+    minPrice: 170000,
     title: 'Doremon ôm bánh',
     imageBg: '99.jpg',
     description: '50cm / 75cm/ 1m',
@@ -834,24 +929,28 @@ const dataShopTeddy = reactive([
         name: '99',
         image: '99.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 170000
+      },
+      {
+        idPrice: 1,
+        label: '75cm',
+        price: 240000
+      },
+      {
+        idPrice: 1,
+        label: '1m',
+        price: 330000
+      }
     ]
   },
-  // {
-  //   sn:8,
-  //   minPrice: 'Rẻ như cho',
-  //   title: 'Nobita / xuka',
-  //   imageBg: '99.jpg',
-  //   description: '50cm / 60cm / 70cm / 80cm',
-  //   listImages: [
-  //     {
-  //       name: '99',
-  //       image: '99.jpg'
-  //     }
-  //   ]
-  // },
   {
     sn:8,
-    minPrice: 90000,
+    minPrice: 140000,
     title: 'Báo hồng',
     imageBg: 'baohong3.jpg',
     description: '70cm / 1m / m3',
@@ -872,11 +971,28 @@ const dataShopTeddy = reactive([
         name: 'baohong4',
         image: 'baohong4.jpg'
       }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '70cm',
+        price: 140000
+      },
+      {
+        idPrice: 1,
+        label: '1m',
+        price: 190000
+      },
+      {
+        idPrice: 1,
+        label: '1m3',
+        price: 220000
+      }
     ]
   },
   {
     sn:9,
-    minPrice: 100000,
+    minPrice: 150000,
     title: 'Hải ly cosplay gấu dâu',
     imageBg: '91.jpg',
     description: '40cm / 50cm / 60cm',
@@ -913,6 +1029,13 @@ const dataShopTeddy = reactive([
       {
         name: 'loopy6',
         image: 'loopy6.jpg'
+      }
+    ],
+    priceOption: [
+      {
+        idPrice: 1,
+        label: '50cm',
+        price: 150000
       }
     ]
   }
@@ -1005,10 +1128,7 @@ useHead({
 .work-sans {
   font-family: 'Work Sans', sans-serif;
 }
-.demo-image__lazy {
-  height: 400px;
-  overflow-y: auto;
-}
+
 .demo-image__lazy .el-image {
   display: block;
   min-height: 200px;
