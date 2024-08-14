@@ -77,34 +77,11 @@ export default defineNuxtConfig({
     '@nuxtjs/web-vitals',
     '@nuxt/devtools',
     '@element-plus/nuxt',
-    '@nuxtjs/i18n',
-    '@nuxt/image'
+    '@nuxtjs/i18n'
   ],
 
   gtag: {
     id: 'G-CET8DX0SFP'
-  },
-  image: {
-    dir: 'assets/shop',
-    // The screen sizes predefined by `@nuxt/image`:
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      '2xl': 1536
-    },
-    presets: {
-      avatar: {
-        modifiers: {
-          format: 'jpg',
-          width: 175,
-          height: 175
-        }
-      }
-    }
   },
   webVitals: {
     provider: 'log',

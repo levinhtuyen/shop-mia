@@ -34,7 +34,7 @@
                                           class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                           :src="`${useAsset(item.imageBg)}`"
                                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                                             
+
                                           fit="cover"
                                         > </el-image>
                                       </a>
@@ -105,6 +105,11 @@
       </div>
     </template>
   </el-drawer>
+  <client-only>
+
+
+    <ButtonChat />
+  </client-only>
   <Footer />
   <client-only>
     <BackToTop />

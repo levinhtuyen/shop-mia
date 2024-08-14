@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div id="pagetop"  class="fixed hidden cursor-pointer bottom-8 right-12"  @click="toTop">
+
+    <div id="pagetop"  class="fixed hidden cursor-pointer bottom-8 right-36"  @click="toTop">
       <img style="" src="@/assets/svg/backtotop.svg" alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"/>
     </div>
   </div>
@@ -17,6 +18,7 @@ const toTop = () => {
   let mybutton = document.getElementById('pagetop') as any
   mybutton.style.display = 'none'
 }
+
 onMounted(() => {
   document.addEventListener('wheel', (event) => {
   let mybutton = document.getElementById('pagetop') as any

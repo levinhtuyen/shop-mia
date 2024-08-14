@@ -24,7 +24,6 @@
     "@gtm-support/vue-gtm": "^2.1.0",
     "@iconify/json": "^2.1.143",
     "@lhci/cli": "^0.12.0",
-    "@nuxt/image": "^1.7.0",
     "@nuxtjs/i18n": "^8.0.0",
     "@nuxtjs/web-vitals": "^0.2.6",
     "@vue/babel-plugin-jsx": "^1.1.5",
