@@ -15,10 +15,10 @@
                     <el-image
                       @click="showImage(imageShow)"
                       :src="useAsset(imageShow.image)"
-                    
+
                       class="h-64 md:h-80"
                       alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                    
+
                       fit="cover"
                                         > </el-image>
                   </div>
@@ -37,13 +37,13 @@
                             image.name === imageShow.name
                         }"
                         class="focus:outline-none w-full rounded-lg h-24 md:h-[75px] bg-gray-100 flex items-center justify-center"
-                      >  
+                      >
                         <el-image
                           :src="useAsset(image.image)"
-                  
-                           
+
+
                           alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                  
+
                           fit="cover"
                                         > </el-image>
                       </button>
@@ -63,7 +63,7 @@
               <div class="flex items-center space-x-4 my-4">
                 <div>
                   <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-        
+
                     <span class="font-bold text-indigo-600 text-3xl"
                       >{{ formatMoney(chooseNumProduct.price) }} đ</span
                     >
@@ -142,9 +142,9 @@
                     <el-image
                     class="h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                     :src="`${useAsset(item.imageBg)}`"
-              
+
                     alt="Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh"
-                        
+
                     fit="cover"
                                         > </el-image>
                 </a>
@@ -210,6 +210,9 @@
         <img class="max-h-screen-md" :src="useAsset(imageShowFull.image)" alt="" />
       </div>
     </el-dialog>
+    <client-only>
+      <ButtonChat />
+    </client-only>
     <Footer />
     <BackToTop />
   </div>

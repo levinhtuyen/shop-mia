@@ -106,8 +106,6 @@
     </template>
   </el-drawer>
   <client-only>
-
-
     <ButtonChat />
   </client-only>
   <Footer />
