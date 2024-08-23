@@ -13,7 +13,7 @@ export const useMetaSeoIndex = () => {
       'Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh',
     ogDescription:
       'Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng',
-    ogImage: 'https://gaubongmia.com/logo.png',
+    ogImage: 'https://gaubongmia.com/logo.webp',
     ogType: 'article',
     ogLink: 'https://gaubongmia.com/',
     robots: 'index, follow',
@@ -52,7 +52,7 @@ export const useMetaSeoIndex = () => {
 
       {
         property: 'og:image',
-        content: 'https://gaubongmia.com/logo.png'
+        content: 'https://gaubongmia.com/logo.webp'
       },
       {
         name: 'robots',

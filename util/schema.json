@@ -14,8 +14,7 @@
     "@type": "Organization",
     "@id": "kg:/g/11vcl7mn3f",
     "url": "https://gaubongmia.com/",
-    "mainentityofpage":
-      "https://www.google.com/search?q=gaubongmia&kponly=&kgmid=/g/11vcl7mn3f",
+    "mainentityofpage": "https://www.google.com/search?q=gaubongmia&kponly=&kgmid=/g/11vcl7mn3f",
     "alternatename": [
       "gấu bông",
       "xưởng gấu bông",
@@ -30,10 +29,8 @@
       "Báo hồng"
     ],
     "actionableFeedbackPolicy": "https://gaubongmia.com/dieu-khoan-su-dung",
-    "award":
-      "Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh",
-    "disambiguatingdescription":
-      "Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng",
+    "award": "Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh",
+    "disambiguatingdescription": "Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng",
     "slogan": "Gấu Bông Mia: Xưởng Sản Xuất Gấu Bông Giá Sỉ Uy Tín - giá rẻ - uy tín số 1 Hồ Chí Minh",
     "foundingDate": "2024-06-01",
     "numberOfEmployees": {
@@ -52,7 +49,7 @@
       "https://en.wikipedia.org/wiki/Real_estate",
       "https://en.wikipedia.org/wiki/Boarding_house"
     ],
-    "logo": "https://gaubongmia.com/logo.png",
+    "logo": "https://gaubongmia.com/logo.webp",
     "email": "levinhtuyen210@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -62,8 +59,7 @@
       "postalCode": "72100",
       "streetAddress": "122/7/2 đường số 11, phường Trường Thọ, Thành phố Thủ Đức"
     },
-    "description":
-      "Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng",
+    "description": "Xưởng sản xuất gấu bông Mia chuyên sản xuất các loại gấu bông, gấu cử nhân, gối ôm HOT trên thị. Mia cam kết là xưởng sản xuất uy tín chất lượng",
     "name": "gaubongmia",
     "telephone": "",
     "potentialAction": {
